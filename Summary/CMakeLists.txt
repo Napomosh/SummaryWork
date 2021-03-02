@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.1)
 
 project(Summary_work)
 
-find_library(LIBRARY libPDFNetC.so PATHS /home/alex/Summary/Summary/Lib)
+find_library(LIBRARY libPDFNetC.so PATHS Lib)
 
 include_directories(Headers)
 
