@@ -18,6 +18,8 @@
 
 #include <iostream>
 
+#include "Project/example.h"
+
 using namespace std;
 
 using namespace pdftron;
@@ -26,16 +28,7 @@ using namespace SDF;
 using namespace Common;
 using namespace Filters;
 
-void PrintStyle(TextExtractor::Style& s)
-{
-	UInt8 rgb[3];
-	char rgb_hex[24];
 
-	s.GetColor(rgb);
-	sprintf(rgb_hex, "%02X%02X%02X;", rgb[0], rgb[1], rgb[2]);
-	cout << " style=\"font-family:" << s.GetFontName() << "; " << "font-size:" << s.GetFontSize() << ";"
-		<< (s.IsSerif() ? " sans-serif; " : " ") << "color:#" << rgb_hex << "\"";
-}
 
 int main(int argc, char* argv[])
 {
@@ -58,7 +51,8 @@ int main(int argc, char* argv[])
 		doc.InitSecurityHandler();
 
 		Page page = doc.GetPage(2);
-		if (!page) {
+		if (!page) 
+		{
 			cout << "Page not found." << endl;
 			return 1;
 		}
@@ -116,11 +110,13 @@ int main(int argc, char* argv[])
 				cout << endl << line_style.GetFontSize() << " " << line_style.GetFontName().ConvertToUtf8() << endl;
 				
 
-				if (line.GetNumWords() == 0) {
+				if (line.GetNumWords() == 0) 
+				{
 					continue;
 				}
 
-				if (cur_para_id != line.GetParagraphID()) {
+				if (cur_para_id != line.GetParagraphID()) 
+				{
 					cur_para_id = line.GetParagraphID();
 				}
 
@@ -129,13 +125,15 @@ int main(int argc, char* argv[])
 				{
 					// Output the bounding box for the word.
 					int sz = word.GetStringLen();
-					if (sz == 0) {
+					if (sz == 0) 
+					{
 						continue;
 					}
 
 					// If the word style is different from the parent style, output the new style.
 					s = word.GetStyle();
-					if (s != line_style) {
+					if (s != line_style) 
+					{
 						//cout << s.GetFontSize() << " " << s.GetFontName().ConvertToUtf8() << " ";
 					}
 

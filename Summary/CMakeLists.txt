@@ -10,7 +10,7 @@ include_directories(Headers)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror")
 
-add_executable(main CPP/main.cpp)
+add_executable(main CPP/main.cpp CPP/example.cpp)
 
 target_link_libraries(main ${LIBRARY})
 

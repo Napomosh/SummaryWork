@@ -123,6 +123,33 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+CPP/example.o: CPP/example.cpp.o
+
+.PHONY : CPP/example.o
+
+# target to build an object file
+CPP/example.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CPP/example.cpp.o
+.PHONY : CPP/example.cpp.o
+
+CPP/example.i: CPP/example.cpp.i
+
+.PHONY : CPP/example.i
+
+# target to preprocess a source file
+CPP/example.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CPP/example.cpp.i
+.PHONY : CPP/example.cpp.i
+
+CPP/example.s: CPP/example.cpp.s
+
+.PHONY : CPP/example.s
+
+# target to generate assembly for a file
+CPP/example.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CPP/example.cpp.s
+.PHONY : CPP/example.cpp.s
+
 CPP/main.o: CPP/main.cpp.o
 
 .PHONY : CPP/main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... CPP/example.o"
+	@echo "... CPP/example.i"
+	@echo "... CPP/example.s"
 	@echo "... CPP/main.o"
 	@echo "... CPP/main.i"
 	@echo "... CPP/main.s"
