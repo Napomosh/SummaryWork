@@ -132,9 +132,6 @@ int main(int argc, char* argv[])
 	string input_path = "/home/alex/Summary/Summary/Resources/lab7.pdf";
 	// string output_path = "../../TestFiles/Output/";
 
-
-
-
 	const char* filein = argc > 1 ? argv[1] : input_path.c_str();
 
 	bool example1_basic = false;
@@ -157,9 +154,6 @@ int main(int argc, char* argv[])
 
 		TextExtractor txt;
 		txt.Begin(page); // Read the page.
-		// Other options you may want to consider...
-		// txt.Begin(*itr, 0, TextExtractor::e_no_dup_remove);
-		// txt.Begin(*itr, 0, TextExtractor::e_remove_hidden_text);
 
 
 		// Example 1. Get all text on the page in a single string.
@@ -345,3 +339,5 @@ int main(int argc, char* argv[])
 	PDFNet::Terminate();
 	return ret;
 }
+
+// g++ main.cpp -I../Headers -L../Lib -lPDFNetC -lstdc++ -lpthread -lm -lc -Wl,-rpath,../Lib -Wl,-rpath$ORIGIN -o myApp
