@@ -2,11 +2,17 @@
 #define _EXAMPLE_H_
 
 #include <PDF/TextExtractor.h>
+#include <string>
+
+#include <nlohmann/json.hpp>
 
 using namespace pdftron;
 using namespace PDF;
+using namespace std;
+
+using json = nlohmann::json;
 
 
-void PrintStyle(TextExtractor::Style& s);
+json read_json(const string& file_name);
 
 #endif //  _EXAMPLE_H_

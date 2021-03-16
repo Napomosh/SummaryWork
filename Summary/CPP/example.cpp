@@ -1,17 +1,22 @@
 #include <iostream>
+#include <fstream>
+
+#include <nlohmann/json.hpp>
 
 #include "Project/example.h"
 
 using namespace pdftron;
 using namespace PDF;
+using namespace std;
 
-void PrintStyle(TextExtractor::Style& s)
+using json = nlohmann::json;
+
+json read_json(const string& file_name)
 {
-	UInt8 rgb[3];
-	char rgb_hex[24];
+    std::ifstream json_file(file_name);
+    json j;
+    json_file >> j;
+    json_file.close();
 
-	s.GetColor(rgb);
-	sprintf(rgb_hex, "%02X%02X%02X;", rgb[0], rgb[1], rgb[2]);
-	std::cout << " style=\"font-family:" << s.GetFontName() << "; " << "font-size:" << s.GetFontSize() << ";"
-		<< (s.IsSerif() ? " sans-serif; " : " ") << "color:#" << rgb_hex << "\"";
+    return j;
 }
