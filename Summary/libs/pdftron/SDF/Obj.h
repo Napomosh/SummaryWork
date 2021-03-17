@@ -8,8 +8,8 @@
 #include <pdftron/Common/Exception.h>
 #include <pdftron/Common/UString.h>
 #include <pdftron/Common/Matrix2D.h>
-#include <pdftron/Filters/FilterWriter.h>
-#include <pdftron/Filters/Filter.h>
+#include "pdftron/Filters/FilterWriter.h"
+#include "pdftron/Filters/Filter.h"
 
 
 namespace pdftron { 
@@ -924,6 +924,6 @@ private:
 
 
 
-#include <pdftron/Impl/SDFDoc.inl>
+#include "pdftron/Impl/SDFDoc.inl"
 
 #endif // PDFTRON_H_CPPSDFSDFObj

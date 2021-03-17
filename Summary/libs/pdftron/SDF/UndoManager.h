@@ -8,8 +8,8 @@
 #ifndef PDFTRON_H_CPPSDFUndoManager
 #define PDFTRON_H_CPPSDFUndoManager
 #include <pdftron/C/SDF/TRN_UndoManager.h>
-#include <pdftron/SDF/DocSnapshot.h>
-#include <pdftron/SDF/ResultSnapshot.h>
+#include "DocSnapshot.h"
+#include "ResultSnapshot.h"
 
 #include <pdftron/Common/BasicTypes.h>
 #include <pdftron/Common/UString.h>
@@ -105,7 +105,7 @@ private:
 #endif
 };
 
-#include <pdftron/Impl/UndoManager.inl>
+#include "pdftron/Impl/UndoManager.inl"
 } //end pdftron
 } //end SDF
 

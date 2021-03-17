@@ -77,6 +77,6 @@ public:
 	};
 };
 
-#include <pdftron/Impl/SDFDoc.inl>
+#include "pdftron/Impl/SDFDoc.inl"
 
 #endif // PDFTRON_H_CPPSDFDictIterator

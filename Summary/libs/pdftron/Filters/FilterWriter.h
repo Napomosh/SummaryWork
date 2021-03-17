@@ -7,8 +7,8 @@
 
 #include <pdftron/C/Common/TRN_Types.h>
 #include <pdftron/C/Filters/TRN_FilterWriter.h>
-#include <pdftron/Filters/Filter.h>
-#include <pdftron/Filters/FilterReader.h>
+#include "Filter.h"
+#include "FilterReader.h"
 
 namespace pdftron { 
 	namespace Filters {
@@ -150,7 +150,7 @@ public:
 
 
 
-#include <pdftron/Impl/FilterWriter.inl>
+#include "pdftron/Impl/FilterWriter.inl"
 
 	};	// namespace Filters
 };	// namespace pdftron

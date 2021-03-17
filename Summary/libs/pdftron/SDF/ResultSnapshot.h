@@ -74,7 +74,7 @@ private:
 #endif
 };
 
-#include <pdftron/Impl/ResultSnapshot.inl>
+#include "pdftron/Impl/ResultSnapshot.inl"
 } //end pdftron
 } //end SDF
 

@@ -243,7 +243,7 @@ public:
 };
 
 
-#include <pdftron/Impl/Filter.inl>
+#include "pdftron/Impl/Filter.inl"
 
 
 	};	// namespace Filters

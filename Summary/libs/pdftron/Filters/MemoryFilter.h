@@ -5,7 +5,7 @@
 #ifndef H_FiltersMemoryFilter
 #define H_FiltersMemoryFilter
 
-#include <pdftron/Filters/Filter.h>
+#include "Filter.h"
 #include <pdftron/Common/Common.h>
 #include <pdftron/C/Filters/TRN_Filter.h>
 
@@ -44,7 +44,7 @@ public:
 };
 
 
-#include <pdftron/Impl/MemoryFilter.inl>
+#include "pdftron/Impl/MemoryFilter.inl"
 
 	};	// namespace Filters
 };	// namespace pdftron

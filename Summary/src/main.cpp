@@ -2,8 +2,8 @@
 #include <map>
 #include <string>
 
-#include "../libs/pdftron/PDF/PDFNet.h"
-#include "../libs/pdftron/PDF/PDFDoc.h"
+#include <../libs/pdftron/PDF/PDFNet.h>
+#include <../libs/pdftron/PDF/PDFDoc.h>
 #include <../libs/pdftron/PDF/TextExtractor.h>
 #include <nlohmann/json.hpp>
 
@@ -19,8 +19,8 @@ int main(int argc, char* argv[])
 {
     int ret = 0;
     PDFNet::Initialize();
-    const char* input_path = "/home/alex/CLionProjects/SummaryWork/Summary/resources/lab7.pdf";
-    string json_path = "/home/alex/CLionProjects/SummaryWork/Summary/resources/json_file.json";
+    const char* input_path { "../resources/lab7.pdf" };
+    const std::string json_path { "../resources/json_file.json" };
     map<string, int> headers;
     json j = read_json(json_path);
     headers = j.get<map <string, int>>();

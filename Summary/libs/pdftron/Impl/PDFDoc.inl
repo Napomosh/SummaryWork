@@ -1,7 +1,7 @@
 #ifndef CPPPDFDOC_INL
 #define CPPPDFDOC_INL
 
-#include <pdftron/SDF/Obj.h>
+#include "pdftron/SDF/Obj.h"
 #include <pdftron/PDF/Field.h>
 #include <pdftron/PDF/Action.h>
 #include <pdftron/PDF/Annot.h>

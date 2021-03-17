@@ -6,7 +6,7 @@
 #define PDFTRON_H_CPPSDFSDFDoc
 
 #include <pdftron/Common/Matrix2D.h>
-#include <pdftron/Filters/FilterReader.h>
+#include "pdftron/Filters/FilterReader.h"
 #include <vector>
 
 namespace pdftron { 
@@ -687,6 +687,6 @@ private:
 };	// namespace pdftron
 
 
-#include <pdftron/Impl/SDFDoc.inl>
+#include "pdftron/Impl/SDFDoc.inl"
 
 #endif // PDFTRON_H_CPPSDFSDFDoc

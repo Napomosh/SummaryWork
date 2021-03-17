@@ -5,7 +5,7 @@
 #ifndef PDFTRON_H_CPPSDFObjSet
 #define PDFTRON_H_CPPSDFObjSet
 
-#include <pdftron/SDF/Obj.h>
+#include "Obj.h"
 #include <pdftron/C/SDF/TRN_ObjSet.h>
 
 namespace pdftron { 
@@ -76,7 +76,7 @@ private:
 };
 
 
-#include <pdftron/Impl/ObjSet.inl>
+#include "pdftron/Impl/ObjSet.inl"
 	};	// namespace SDF
 };	// namespace pdftron
 

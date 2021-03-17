@@ -5,8 +5,8 @@
 #ifndef PDFTRON_H_CPPFDFFDFDoc
 #define PDFTRON_H_CPPFDFFDFDoc
 
-#include <pdftron/SDF/SDFDoc.h>
-#include <pdftron/FDF/FDFField.h>
+#include "pdftron/SDF/SDFDoc.h"
+#include "FDFField.h"
 #include <pdftron/Common/Iterator.h>
 #include <pdftron/C/FDF/TRN_FDFDoc.h>
 #include <pdftron/PDF/Field.h>
@@ -289,7 +289,7 @@ private:
 };
 
 
-#include <pdftron/Impl/FDFDoc.inl>
+#include "pdftron/Impl/FDFDoc.inl"
 
 	};	// namespace FDF
 };	// namespace pdftron

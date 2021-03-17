@@ -8,7 +8,7 @@
 #include <vector>
 #include <pdftron/Common/BasicTypes.h>
 #include <pdftron/Common/UString.h>
-#include <pdftron/SDF/Obj.h>
+#include "Obj.h"
 #include <pdftron/C/Common/TRN_Types.h>
 #include <pdftron/C/SDF/TRN_SignatureHandler.h>
 
@@ -83,6 +83,6 @@ public:
 }; // namespace SDF
 }; // namespace pdftron
 
-#include <pdftron/Impl/SignatureHandler.inl>
+#include "pdftron/Impl/SignatureHandler.inl"
 
 #endif // PDFTRON_H_CPPSDFSignatureHandler

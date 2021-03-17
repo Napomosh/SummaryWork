@@ -6,7 +6,7 @@
 #define PDFTRON_H_CPPFiltersMappedFile
 
 #include <pdftron/Common/UString.h>
-#include <pdftron/Filters/Filter.h>
+#include "Filter.h"
 #include <pdftron/Common/Common.h>
 #include <pdftron/C/Filters/TRN_Filter.h>
 
@@ -66,7 +66,7 @@ public:
 
 };
 
-#include <pdftron/Impl/MappedFile.inl>
+#include "pdftron/Impl/MappedFile.inl"
 	
 	};	// namespace Filters
 };	// namespace pdftron

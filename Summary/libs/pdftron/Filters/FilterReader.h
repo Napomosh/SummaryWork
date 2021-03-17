@@ -7,7 +7,7 @@
 
 #include <pdftron/C/Filters/TRN_FilterReader.h>
 #include <pdftron/Common/Common.h>
-#include <pdftron/Filters/Filter.h>
+#include "Filter.h"
 
 #include <vector>
 
@@ -117,7 +117,7 @@ public:
 };
 
 
-#include <pdftron/Impl/FilterReader.inl>
+#include "pdftron/Impl/FilterReader.inl"
 
 	};	// namespace Filters
 };	// namespace pdftron

@@ -5,7 +5,7 @@
 #ifndef PDFTRON_H_CPPFiltersASCII85Encode
 #define PDFTRON_H_CPPFiltersASCII85Encode
 
-#include <pdftron/Filters/Filter.h>
+#include "Filter.h"
 #include <pdftron/Common/Common.h>
 #include <pdftron/C/Filters/TRN_Filter.h>
 
@@ -26,7 +26,7 @@ public:
 	 ASCII85Encode (Filter input_filter, int line_width = 72, size_t buf_sz = 256);
 };
 
-#include <pdftron/Impl/ASCII85Encode.inl>
+#include "pdftron/Impl/ASCII85Encode.inl"
 
 
 	};	// namespace Filters

@@ -6,9 +6,9 @@
 #define PDFTRON_H_CPPSDFNumberTree
 
 #include <pdftron/C/SDF/TRN_NumberTree.h>
-#include <pdftron/SDF/DictIterator.h>
-#include <pdftron/SDF/Obj.h>
-#include <pdftron/SDF/SDFDoc.h>
+#include "DictIterator.h"
+#include "Obj.h"
+#include "SDFDoc.h"
 
 namespace pdftron { 
 	namespace SDF {
@@ -140,7 +140,7 @@ protected:
 
 
 
-#include <pdftron/Impl/NumberTree.inl>
+#include "pdftron/Impl/NumberTree.inl"
 
 	};	// namespace SDF
 };	// namespace pdftron

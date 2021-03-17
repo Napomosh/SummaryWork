@@ -5,7 +5,7 @@
 #ifndef PDFTRON_H_CPPFDFFDFField
 #define PDFTRON_H_CPPFDFFDFField
 
-#include <pdftron/SDF/Obj.h>
+#include "pdftron/SDF/Obj.h"
 #include <pdftron/C/FDF/TRN_FDFField.h>
 
 namespace pdftron { 
@@ -75,7 +75,7 @@ private:
 
 
 
-#include <pdftron/Impl/FDFField.inl>
+#include "pdftron/Impl/FDFField.inl"
 
 	};	// namespace FDF
 };	// namespace pdftron

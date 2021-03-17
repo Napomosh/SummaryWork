@@ -1,4 +1,4 @@
-#include <pdftron/Impl/Utils.inl>
+#include "Utils.inl"
 
 inline ViewerOptimizedOptions::ViewerOptimizedOptions()
 {

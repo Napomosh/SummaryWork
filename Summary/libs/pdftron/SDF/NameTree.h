@@ -6,9 +6,9 @@
 #define PDFTRON_H_CPPSDFNameTree
 
 #include <pdftron/C/SDF/TRN_NameTree.h>
-#include <pdftron/SDF/DictIterator.h>
-#include <pdftron/SDF/Obj.h>
-#include <pdftron/SDF/SDFDoc.h>
+#include "DictIterator.h"
+#include "Obj.h"
+#include "SDFDoc.h"
 
 
 namespace pdftron { 
@@ -182,7 +182,7 @@ protected:
 };
 
 
-#include <pdftron/Impl/NameTree.inl>
+#include "pdftron/Impl/NameTree.inl"
 
 	};	// namespace SDF
 };	// namespace pdftron

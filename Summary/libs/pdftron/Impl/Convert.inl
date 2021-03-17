@@ -1,4 +1,4 @@
-#include <pdftron/Impl/Utils.inl>
+#include "Utils.inl"
 void SetFlattenContentImpl(TRN_Obj obj, enum Convert::FlattenFlag flatten, TRN_Obj* result);
 void SetFlattenThresholdImpl(TRN_Obj obj, enum Convert::FlattenThresholdFlag threshold, TRN_Obj* result);
 

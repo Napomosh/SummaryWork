@@ -67,7 +67,7 @@ private:
 #endif
 };
 
-#include <pdftron/Impl/DocSnapshot.inl>
+#include "pdftron/Impl/DocSnapshot.inl"
 } //end pdftron
 } //end SDF
 

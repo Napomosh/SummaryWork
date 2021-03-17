@@ -11,7 +11,8 @@ json read_json(const std::string& file_name)
 {
     std::ifstream json_file(file_name);
     json j;
-    json_file >> j;
+	j = json::parse(json_file);
+    //json_file >> j;
     json_file.close();
 
     return j;

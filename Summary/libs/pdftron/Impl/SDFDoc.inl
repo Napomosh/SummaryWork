@@ -2,10 +2,10 @@
 #ifndef CPPSDFDOC_INL
 #define CPPSDFDOC_INL
 
-#include <pdftron/SDF/SecurityHandler.h>
-#include <pdftron/SDF/Obj.h>
-#include <pdftron/SDF/DictIterator.h>
-#include <pdftron/SDF/SDFDoc.h>
+#include "pdftron/SDF/SecurityHandler.h"
+#include "pdftron/SDF/Obj.h"
+#include "pdftron/SDF/DictIterator.h"
+#include "pdftron/SDF/SDFDoc.h"
 
 #include <pdftron/C/Common/TRN_Vector.h>
 #include <pdftron/C/Common/TRN_Iterator.h>

@@ -5,7 +5,7 @@
 #ifndef PDFTRON_H_CPPFiltersFlateEncode
 #define PDFTRON_H_CPPFiltersFlateEncode
 
-#include <pdftron/Filters/Filter.h>
+#include "Filter.h"
 #include <pdftron/Common/Common.h>
 #include <pdftron/C/Filters/TRN_Filter.h>
 
@@ -33,7 +33,7 @@ public:
 	FlateEncode (Filter input_filter, int compression_level = -1, size_t buf_sz = 256);
 };
 
-#include <pdftron/Impl/FlateEncode.inl>
+#include "pdftron/Impl/FlateEncode.inl"
 
 	};	// namespace Filters
 };	// namespace pdftron

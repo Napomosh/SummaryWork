@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <pdftron/Common/UString.h>
-#include <pdftron/Filters/Filter.h>
+#include "pdftron/Filters/Filter.h"
 
 namespace pdftron { 
 	namespace SDF {
@@ -440,6 +440,6 @@ public:
 	};	// namespace SDF
 };	// namespace pdftron
 
-#include <pdftron/Impl/SDFDoc.inl>
+#include "pdftron/Impl/SDFDoc.inl"
 
 #endif // PDFTRON_H_CPPSDFSecurityHandler
