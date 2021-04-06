@@ -8,6 +8,7 @@
 #include <nlohmann/json.hpp>
 #include <fstream>
 
+#include "settings/Settings.h"
 #include "../headers/example.h"
 
 using json = nlohmann::json;
@@ -25,10 +26,11 @@ json read_json(const std::string& file_name)
 
 void run_all(const string& input_path, int& ret)
 {
-	const std::string json_path { "../resources/json_file.json" };
-	json j = read_json(json_path);
-	map<string, int> headers = j["Заголовки"];
-	int tests_count = j["Количество тестов"];
+	Settings set ("../resources/json_file.json");
+//	const std::string json_path { "../resources/json_file.json" };
+//	json j = read_json(json_path);
+//	map<string, int> headers = j["Заголовки"];
+//	int tests_count = j["Количество тестов"];
 
 	map<string, int>::iterator it;
 	try
@@ -37,7 +39,8 @@ void run_all(const string& input_path, int& ret)
 		doc.InitSecurityHandler();
 
 		Page page ;
-		for (int i = 2; (page = doc.GetPage(i)) != NULL; i++)
+		int test_count = 2;
+		for (int i = test_count; (page = doc.GetPage(i)) != NULL; i++)
 		{
 			//Page page = doc.GetPage(2);
 			if (!page)
@@ -100,9 +103,9 @@ void run_all(const string& input_path, int& ret)
 						head += uni_str.ConvertToUtf8();
 					}
 
-					if (headers.count(head) > 0)
+					if (set.get_count_header(head) > 0)
 					{
-						auto cur_header = headers.find(head);
+						auto cur_header = set.find_header(head);
 						if (cur_header->second == 0)
 						{
 							cur_header->second++;
@@ -126,11 +129,11 @@ void run_all(const string& input_path, int& ret)
 				}
 			}
 		}
-		for (auto it = headers.begin(); it != headers.end(); ++it)
+		for (auto it1 = set.get_begin_header(); it1 != set.get_end_header(); ++it1)
 		{
-			if (it->second == 0)
+			if (it1->second == 0)
 			{
-				cout << "Не найден заголовок: " << it->first << endl;
+				cout << "Не найден заголовок: " << it1->first << endl;
 			}
 		}
 	}

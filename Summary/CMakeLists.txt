@@ -13,11 +13,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED true)
 #Пойдет туда и соберет эту директорию по мейк файлу
 #add_subdirectory(CPP)
 
-add_executable(main src/main.cpp src/example.cpp)
+add_executable(main src/main.cpp src/example.cpp src/settings/Settings.cpp src/settings/Settings.h src/parser/Parser.cpp src/parser/Parser.h src/checker/Checker.cpp src/checker/Checker.h)
 
 target_link_libraries(main ${LIBRARY})
 target_link_libraries(main nlohmann_json::nlohmann_json)
 
 
-# g++ main.cpp -I../libs -L../Lib -lPDFNetC -lstdc++ -lpthread -lm -lc -Wl,-rpath,../Lib -Wl,-rpath$ORIGIN -o myApp
+# g++ test.cpp -I../libs -L../Lib -lPDFNetC -lstdc++ -lpthread -lm -lc -Wl,-rpath,../Lib -Wl,-rpath$ORIGIN -o test
 

@@ -1,13 +1,12 @@
 #include <iostream>
 #include <string>
-
 #include <../libs/pdftron/PDF/PDFNet.h>
 
 #include "../headers/example.h"
+#include "parser/Parser.h"
 
 using namespace pdftron;
 using namespace PDF;
-
 
 int main(int argc, char* argv[])
 {
@@ -24,8 +23,9 @@ int main(int argc, char* argv[])
     }
     else
     {
-	    string input_path { "../resources/lab7.pdf" };
-	    run_all(input_path, ret);
+	    string input_path { "../resources/lab18.pdf" };
+	    Parser parser(input_path);
+	    parser.parse();
     }
 
 	PDFNet::Terminate();

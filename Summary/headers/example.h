@@ -15,5 +15,6 @@ using json = nlohmann::json;
 
 json read_json(const string& file_name);
 void run_all(const string& input_path, int& ret);
+void init_config(const string& json_name);
 
 #endif //  _EXAMPLE_H_
