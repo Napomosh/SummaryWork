@@ -1,4 +1,5 @@
 #include "Parser.h"
+#include "../settings/Settings.h"
 
 #include <iostream>
 #include <map>
@@ -8,10 +9,9 @@
 #include <pdftron/PDF/PDFDoc.h>
 #include <pdftron/PDF/TextExtractor.h>
 
-Parser::Parser(const std::string& input_path)
+Parser::Parser(const std::string& input_path) : set(Settings("/home/alex/CLionProjects/SummaryWork/Summary/resources/json_file.json"))
 {
 	lab_name = input_path;
-//	set = Settings("../resources/json_file.json");
 }
 
 void Parser::check_headers(const std::string& head)
@@ -91,12 +91,22 @@ int Parser::parse()
 			for (line = txt.GetFirstLine(); line.IsValid(); line = line.GetNextLine())
 			{
 				line_style = line.GetStyle();
+				if(line_style.GetFontName().ConvertToUtf8() != set.font_setting.name_font)
+				{
+					std::cout << "Строка номер: " << line.GetCurrentNum() << " Шрифт отличается от заданного" << std::endl;
+					continue;
+				}
+				else if(line_style.GetFontSize() > (set.font_setting.value_font + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font - 0.5))
+				{
+					std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта отличается от заданного" << std::endl;
+					continue;
+				}
 				//cout << endl << line_style.GetFontSize() << " " << line_style.GetFontName().ConvertToUtf8() << endl;
 				if (line.GetNumWords() == 0)
 				{
 					continue;
 				}
-				if (line_style.GetFontSize() == 20.04) {
+				if (line_style.GetFontSize() > (set.font_setting.value_font_header - 0.5) && line_style.GetFontSize() < (set.font_setting.value_font_header + 0.5)) {
 					head = parse_headers(line, line_style);
 					if (set.get_count_header(head) > 0)
 					{

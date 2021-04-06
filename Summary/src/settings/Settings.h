@@ -10,7 +10,15 @@ class Settings
 public:
 	Settings& operator=(Settings *rhs) = delete;
 	Settings( const Settings& rhs );
-	explicit Settings(const std::string& rules_file);
+	Settings(const std::string& rules_file);
+	Settings();
+
+	struct FontSetting
+	{
+		std::string name_font = "-1";
+		int value_font { -1 };
+		int value_font_header { -1 };
+	} font_setting;
 
 	void init_settings(const std::string& file_name);
 
@@ -21,11 +29,12 @@ public:
 
 private:
 	std::string rules_file;
-	json json_rules;
+	json json_rules = nullptr;
 	std::map<std::string, int> headers;
 
 	json read_json(const std::string& file_name);
 	void init_headers_rule();
+	void init_font_rule();
 };
 
 

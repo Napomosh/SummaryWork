@@ -19,7 +19,7 @@ public:
 
 private:
 	std::string lab_name;
-	Settings set = Settings("../resources/json_file.json");
+	Settings set;
 	Checker checker;
 	void check_headers(const std::string& head);
 	std::string parse_headers(TextExtractor::Line& line, TextExtractor::Style& line_style);
