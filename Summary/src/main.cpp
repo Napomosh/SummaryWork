@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 //	    }
 //    }
 //    else
-//    {дфи20
+//    {
     std::string input_path { "/home/alex/CLionProjects/SummaryWork/Summary/resources/lab18.pdf" };
     Parser parser(input_path);
     parser.parse();

@@ -65,5 +65,5 @@ json Settings::read_json(const std::string& file_name)
 	else
 	{
 		return nullptr;
-	};
+	}
 }

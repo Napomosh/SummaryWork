@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/main.dir/src/main.cpp.o CMakeFiles/main.dir/src/settings/Settings.cpp.o CMakeFiles/main.dir/src/parser/Parser.cpp.o CMakeFiles/main.dir/src/checker/Checker.cpp.o  -o main  -Wl,-rpath,/home/alex/CLionProjects/SummaryWork/Summary/libs ../libs/libPDFNetC.so 

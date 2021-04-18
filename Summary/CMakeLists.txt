@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 project(Summary_work VERSION 1.0.0 LANGUAGES CXX)
 
-find_library(LIBRARY libPDFNetC.so PATHS Lib)
+find_library(LIBRARY libPDFNetC.so PATHS libs)
 find_package(nlohmann_json 3.2.0 REQUIRED)
 
 include_directories(libs)
@@ -18,6 +18,4 @@ add_executable(main src/main.cpp src/settings/Settings.cpp src/settings/Settings
 target_link_libraries(main ${LIBRARY})
 target_link_libraries(main nlohmann_json::nlohmann_json)
 
-
-# g++ test.cpp -I../libs -L../Lib -lPDFNetC -lstdc++ -lpthread -lm -lc -Wl,-rpath,../Lib -Wl,-rpath$ORIGIN -o test
 

@@ -73,7 +73,7 @@ int Parser::parse()
 		doc.InitSecurityHandler();
 		Page page ;
 		int test_count = 2;
-		for (int i = test_count; (page = doc.GetPage(i)) != NULL; i++)
+		for (int i = test_count; (page = doc.GetPage(i)) != 0; i++)
 		{
 			if (!page)
 			{
