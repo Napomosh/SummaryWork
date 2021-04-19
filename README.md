@@ -1,8 +1,9 @@
-# SummaryWork
-Для запуска скриптов необходимо находиться в директории .../Summary/
+Для выполнения действий необходимо находиться в директории Summary.
 
-Для сборки проекта запускаем ./scripts/build.sh
+Для работы программы необходима библиотека nlohman. Если ее нет, можно установить с помощью sudo apt-get install nlohmann-json3-dev или ./scripts/submodules.sh
 
-Для старта проекта запускаем ./scripts/run.sh
+Для сборки проекта можно запустить ./scripts/build.sh или ./scripts/build_and_run.sh (соберет и сразу запустит)
 
-Для сборки и последующего старта запускаем ./scripts/build_and_run.sh
+Для запуска можно прописать ./scripts/run.sh
+
+Если скрипты выдают ошибку: bash: ./scripts/<script_name>.sh: Permission denied, то разрешаем полный доступ к скриптам командой chmod 777 -R scripts
