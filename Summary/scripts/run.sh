@@ -1,2 +1,2 @@
-cd make/
+cd build/
 ./main
