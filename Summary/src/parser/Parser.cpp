@@ -96,6 +96,7 @@ int Parser::parse()
 		int test_count = 2;
 		for (int i = test_count; (page = doc.GetPage(i)) != 0; i++)
 		{
+			std::cout << page.Box.e_media << std::endl;
 			if (!page)
 			{
 				std::cout << "Page not found." << std::endl;
