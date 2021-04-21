@@ -9,27 +9,44 @@
 #include <pdftron/PDF/PDFDoc.h>
 #include <pdftron/PDF/TextExtractor.h>
 
-Parser::Parser(const std::string& input_path) : set(Settings("/home/alex/CLionProjects/SummaryWork/Summary/resources/json_file.json"))
+Parser::Parser(const std::string& input_path) : set(Settings("../resources/json_file.json")), tests(0)
 {
 	lab_name = input_path;
 }
+Parser::Parser() : set(Settings("../resources/json_file.json")), tests(0)
+{
+	lab_name = "none";
+}
 
-void Parser::check_headers(const std::string& head)
+void Parser::check_headers(const std::string& head, TextExtractor::Line& line)
 {
 	auto cur_header = set.find_header(head);
+	auto line_style = line.GetStyle();
 	if (cur_header->second == 0)
 	{
 		cur_header->second++;
 //		std::cout << "Найден заголовок: " << cur_header->first << std::endl;
 		checker.add_head_message("Найден заголовок: " + cur_header->first );
-		if (cur_header->first.substr(0, sizeof ("Тест")) == "Тест")
+		
+		if (cur_header->first.substr(0, 20) == "Тестирован")
 		{
-			std::cout << "Нашли тестирование, здесь нужно посчитать тесты" << std::endl;
+			checker.inc_tests_value(1);
+			// std::cout << "Нашли тестирование, здесь нужно посчитать тесты" << std::endl;
+
 		}
 	}
 	else
 	{
 		std::cout << "Заголовок встречается несколько раз" << std::endl;
+	}
+
+	if(line_style.GetFontName().ConvertToUtf8() != set.font_setting.name_font)
+	{
+		std::cout << "Строка номер: " << line.GetCurrentNum() << " Шрифт заголовка отличается от заданного" << std::endl;
+	}
+	else if(line_style.GetFontSize() > (set.font_setting.value_font_header + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font_header - 0.5))
+	{
+		std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта заголовка отличается от заданного" << std::endl;
 	}
 }
 
@@ -65,6 +82,10 @@ std::string Parser::parse_headers(TextExtractor::Line& line, TextExtractor::Styl
 
 int Parser::parse()
 {
+	if (lab_name == "none")
+	{
+		return 0;
+	}
 	int ret = 0;
 	std::map<std::string, int>::iterator it;
 	try
@@ -88,9 +109,27 @@ int Parser::parse()
 			TextExtractor::Line line;
 			TextExtractor::Style line_style;
 			// For each line on the page...
+			bool prev_is_head = false;
 			for (line = txt.GetFirstLine(); line.IsValid(); line = line.GetNextLine())
 			{
 				line_style = line.GetStyle();
+				if (line_style.GetFontSize() > (set.font_setting.value_font_header - 0.5) && line_style.GetFontSize() < (set.font_setting.value_font_header + 0.5)) {
+					head = parse_headers(line, line_style);
+					if (set.get_count_header(head) > 0)
+					{
+						if(prev_is_head)
+						{
+							std::cout << "Два заголовка идут подряд. Строка номер: " << line.GetCurrentNum() << std::endl;
+						}
+						prev_is_head = true;
+						check_headers(head, line);
+						continue;
+					}
+				}
+				if (line.GetNumWords() == 0)
+				{
+					continue;
+				}
 				if(line_style.GetFontName().ConvertToUtf8() != set.font_setting.name_font)
 				{
 					std::cout << "Строка номер: " << line.GetCurrentNum() << " Шрифт отличается от заданного" << std::endl;
@@ -101,18 +140,11 @@ int Parser::parse()
 					std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта отличается от заданного" << std::endl;
 					continue;
 				}
-				//cout << endl << line_style.GetFontSize() << " " << line_style.GetFontName().ConvertToUtf8() << endl;
-				if (line.GetNumWords() == 0)
+				else
 				{
-					continue;
+					prev_is_head = false;
 				}
-				if (line_style.GetFontSize() > (set.font_setting.value_font_header - 0.5) && line_style.GetFontSize() < (set.font_setting.value_font_header + 0.5)) {
-					head = parse_headers(line, line_style);
-					if (set.get_count_header(head) > 0)
-					{
-						check_headers(head);
-					}
-				}
+				//cout << endl << line_style.GetFontSize() << " " << line_style.GetFontName().ConvertToUtf8() << endl;
 			}
 		}
 		for (auto it1 = set.get_begin_header(); it1 != set.get_end_header(); ++it1)
@@ -135,6 +167,14 @@ int Parser::parse()
 		ret = 1;
 	}
 	checker.print_head_result();
+	checker.print_tests_count();
+	return ret;
+}
+
+void Parser::set_file(const std::string& new_file)
+{
+	lab_name = new_file;
+	tests = 0;
 }
 
 Checker Parser::get_checker_info()

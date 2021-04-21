@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Checker.h"
 
-Checker::Checker()
+Checker::Checker() : tests(0)
 {
 
 }
@@ -21,4 +21,18 @@ void Checker::print_head_result()
 std::list<std::string> Checker::get_head_messages()
 {
 	return head_message_list;
+}
+
+void Checker::save_tests_count(int value)
+{
+	tests = value;
+}
+void Checker::inc_tests_value(int value)
+{
+	tests += value;
+}
+
+void Checker::print_tests_count()
+{
+	std::cout << tests << std::endl;
 }

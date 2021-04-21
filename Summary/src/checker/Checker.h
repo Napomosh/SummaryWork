@@ -11,8 +11,12 @@ public:
 	void add_head_message(const std::string& msg);
 	void print_head_result();
 	std::list<std::string> get_head_messages();
+	void save_tests_count(int value);
+	void inc_tests_value(int value);
+	void print_tests_count();
 private:
 	std::list<std::string> head_message_list;
+	int tests;
 };
 
 #endif //SUMMARY_WORK_CHECKER_H

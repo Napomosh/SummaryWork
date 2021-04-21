@@ -13,15 +13,18 @@ class Parser
 {
 public:
 	Parser(const std::string& input_path);
+	Parser();
 
 	int parse();
+	void set_file(const std::string& new_file);
 	Checker get_checker_info();
 
 private:
+	int tests;
 	std::string lab_name;
 	Settings set;
 	Checker checker;
-	void check_headers(const std::string& head);
+	void check_headers(const std::string& head, TextExtractor::Line& line);
 	std::string parse_headers(TextExtractor::Line& line, TextExtractor::Style& line_style);
 };
 
