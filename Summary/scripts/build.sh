@@ -1,3 +1,3 @@
-sudo cmake -S ../Summary -B ../build
+cmake -S ../Summary -B ../build
 cd build
-sudo make
+make
