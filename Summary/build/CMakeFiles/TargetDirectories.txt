@@ -1,3 +1,0 @@
-/home/alex/CLionProjects/SummaryWork/Summary/build/CMakeFiles/rebuild_cache.dir
-/home/alex/CLionProjects/SummaryWork/Summary/build/CMakeFiles/edit_cache.dir
-/home/alex/CLionProjects/SummaryWork/Summary/build/CMakeFiles/main.dir
