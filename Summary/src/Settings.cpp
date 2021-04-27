@@ -13,6 +13,7 @@ void Settings::init_settings(const std::string& file_name)
 {
 	init_headers_rule();
 	init_font_rule();
+	init_test_rule();
 }
 void Settings::init_headers_rule()
 {
@@ -27,9 +28,25 @@ void Settings::init_font_rule()
 	font_setting.value_font = std::stoi(std::string(json_rules["Настройки шрифта"]["Размер основного текста"]));
 	font_setting.value_font_header = std::stoi(std::string(json_rules["Настройки шрифта"]["Размер заголовка"]));
 }
+void Settings::init_test_rule()
+{
+	test_count = json_rules["Количество тестов"];
+}
 int Settings::get_count_header(std::string& header)
 {
 	return headers.count(header);
+}
+bool Settings::get_is_test_found()
+{
+	return is_test_found;
+}
+int Settings::get_test_count()
+{
+	return test_count;
+}
+void Settings::set_is_test_found(bool value)
+{
+	is_test_found = value;
 }
 std::map<std::string, int>::iterator Settings::find_header(const std::string& header)
 {

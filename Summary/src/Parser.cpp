@@ -2,6 +2,7 @@
 #include "Settings.h"
 #include "HeadChecker.h"
 #include "StyleChecker.h"
+#include "TestChecker.h"
 
 #include <iostream>
 #include <map>
@@ -36,7 +37,8 @@ int Parser::parse()
 	int begin_page = 2;
 	HeadChecker header_checker;
 	StyleChecker style_checker;
-	
+	TestChecker test_checker;
+
 	for (int i = begin_page; (page = doc.GetPage(i)) != 0; i++)
 	{
 		// std::cout << page.Box.e_media << std::endl;
@@ -48,6 +50,10 @@ int Parser::parse()
 
 		header_checker.check_rule(page, set);
 		style_checker.check_rule(page, set);
+		if(set.get_is_test_found())
+		{
+			test_checker.check_rule(page, set);
+		}
 	}
 
 	header_checker.get_result(set);

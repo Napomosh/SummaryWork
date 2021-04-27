@@ -26,6 +26,7 @@ void HeadChecker::check_headers(const std::string& head, TextExtractor::Line& li
 		
 		if (cur_header->first.substr(0, 20) == "Тестирован")
 		{
+			set.set_is_test_found(true);
 			// checker.inc_tests_value(1);
 			// std::cout << "Нашли тестирование, здесь нужно посчитать тесты" << std::endl;
 
