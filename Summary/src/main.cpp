@@ -2,10 +2,9 @@
 #include <string>
 #include <../libs/pdftron/PDF/PDFNet.h>
 
-#include "parser/Parser.h"
+#include "Parser.h"
 
 using namespace pdftron;
-using namespace PDF;
 
 int main(int argc, char* argv[])
 {

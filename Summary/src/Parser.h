@@ -2,12 +2,9 @@
 #define SUMMARY_WORK_PARSER_H
 
 #include <string>
-#include "../settings/Settings.h"
-#include "../checker/Checker.h"
-#include <../libs/pdftron/PDF/TextExtractor.h>
-
-using namespace pdftron;
-using namespace PDF;
+#include "Settings.h"
+#include "Checker.h"
+#include <pdftron/PDF/TextExtractor.h>
 
 class Parser
 {
@@ -24,8 +21,8 @@ private:
 	std::string lab_name;
 	Settings set;
 	Checker checker;
-	void check_headers(const std::string& head, TextExtractor::Line& line);
-	std::string parse_headers(TextExtractor::Line& line, TextExtractor::Style& line_style);
+	void check_headers(const std::string& head, pdftron::PDF::TextExtractor::Line& line);
+	std::string parse_headers(pdftron::PDF::TextExtractor::Line& line, pdftron::PDF::TextExtractor::Style& line_style);
 };
 
 #endif //SUMMARY_WORK_PARSER_H
