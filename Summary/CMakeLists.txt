@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDART 11)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
 
-add_executable(main src/main.cpp src/Settings.cpp src/Settings.h src/Parser.cpp src/Parser.h src/Checker.cpp src/Checker.h src/Rule.h src/HeadChecker.cpp src/HeadChecker.h src/StyleChecker.cpp src/StyleChecker.h)
+add_executable(main src/main.cpp src/Settings.cpp src/Settings.h src/Parser.cpp src/Parser.h src/Checker.cpp src/Checker.h src/Rule.h src/HeadChecker.cpp src/HeadChecker.h src/StyleChecker.cpp src/StyleChecker.h src/TestChecker.cpp src/TestChecker.h)
 
 target_link_libraries(main ${LIBRARY})
 target_link_libraries(main nlohmann_json::nlohmann_json)
