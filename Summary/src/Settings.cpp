@@ -61,11 +61,11 @@ std::map<std::string, int>::iterator Settings::get_end_header()
 	return headers.end();
 }
 
-json Settings::read_json(const std::string& file_name)
+nlohmann::json Settings::read_json(const std::string& file_name)
 {
 	std::ifstream json_file(file_name);
-	json j;
-	j = json::parse(json_file);
+	nlohmann::json j;
+	j = nlohmann::json::parse(json_file);
 //		json_file >> s;
 	json_file.close();
 	return j;
