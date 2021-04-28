@@ -1,27 +1,47 @@
-#include "gtest/gtest.h"
-#include "../src/parser/Parser.h"
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "doctest.h"
+#include "../src/Parser.h"
 
-#include <string>
-#include <list>
+#include <../libs/pdftron/PDF/PDFNet.h>
 
-TEST( TestHeaders, Test_parse )
-{
-	std::list<std::string> expected {"Найден заголовок: Задание", "Найден заголовок: Тестирование", "Не найден заголовок: Инструкция пользователя"};
-	std::string input_path { "../resources/lab18.pdf" };
-	Parser parser(input_path);
-	parser.parse();
-	auto info = parser.get_checker_info().get_head_messages();
-	auto it1 = expected.begin();
-	for(auto it = info.begin(); it != info.end() && it1 != expected.end(); ++it)
+using namespace pdftron;
+
+TEST_CASE("Check header rules 1") {
+	PDFNet::Initialize();
+	std::string input_path { "../../resources/lab7.pdf" };
+	Parser parser =  Parser(input_path, "../../resources/json_file.json");
+	Checker checker = parser.parse();
+	PDFNet::Terminate();
+
+	auto messages = checker.get_head_messages();
+	std::list<std::string> expected { "Найден заголовок: Задание", "Найден заголовок: Инструкция пользователя", "Найден заголовок: Тестирование" };
+	auto it_expected = expected.begin();
+	int exp_size = expected.size();
+
+	CHECK(messages.size() == exp_size);	
+	for(auto it = messages.begin(); it != messages.end(); ++it)
 	{
-		ASSERT_EQ(*it, *it1);
-		++it1;
+		CHECK(*it == *it_expected);
+		++it_expected;
 	}
 }
 
+TEST_CASE("Check style rules 1") {
+	PDFNet::Initialize();
+	std::string input_path { "../../resources/lab7.pdf" };
+	Parser parser =  Parser(input_path, "../../resources/json_file.json");
+	Checker checker = parser.parse();
+	PDFNet::Terminate();
 
-int main( int argc, char **argv )
-{
-	::testing::InitGoogleTest( &argc, argv );
-	return RUN_ALL_TESTS();
+	auto messages = checker.get_head_messages();
+	std::list<std::string> expected { "Найден заголовок: Задание", "Найден заголовок: Инструкция пользователя", "Найден заголовок: Тестирование" };
+	auto it_expected = expected.begin();
+	int exp_size = expected.size();
+
+	CHECK(messages.size() == exp_size);	
+	for(auto it = messages.begin(); it != messages.end(); ++it)
+	{
+		CHECK(*it == *it_expected);
+		++it_expected;
+	}
 }

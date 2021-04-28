@@ -10,9 +10,11 @@ class Parser
 {
 public:
 	Parser(const std::string& input_path);
+	Parser(const std::string& input_path, const std::string& rule_path);
 	Parser();
 
-	int parse();
+	Checker parse();
+	void set_rule_file(const std::string& new_file);
 	void set_file(const std::string& new_file);
 	Checker get_checker_info();
 

@@ -13,7 +13,7 @@ StyleChecker::StyleChecker()
 
 }
 
-void StyleChecker::check_rule(Page& page, Settings& set)
+void StyleChecker::check_rule(Page& page, Settings& set, Checker& checker)
 {
 	TextExtractor txt;
 	txt.Begin(page);

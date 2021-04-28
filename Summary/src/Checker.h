@@ -16,6 +16,8 @@ public:
 	void print_tests_count();
 private:
 	std::list<std::string> head_message_list;
+	std::list<std::string> style_message_list;
+	std::list<std::string> test_message_list;
 	int tests;
 };
 

@@ -19,16 +19,20 @@ Parser::Parser(const std::string& input_path) : set(Settings("../resources/json_
 {
 	lab_name = input_path;
 }
+Parser::Parser(const std::string& input_path, const std::string& rule_path) : set(Settings(rule_path)), tests(0)
+{
+	lab_name = input_path;
+}
 Parser::Parser() : set(Settings("../resources/json_file.json")), tests(0)
 {
 	lab_name = "none";
 }
 
-int Parser::parse()
+Checker Parser::parse()
 {
 	if (lab_name == "none")
 	{
-		return -1;
+		
 	}
 
 	PDFDoc doc(lab_name);
@@ -45,28 +49,34 @@ int Parser::parse()
 		if (!page)
 		{
 			std::cout << "Page not found." << std::endl;
-			return 1;
+			continue;
 		}
 
-		header_checker.check_rule(page, set);
-		style_checker.check_rule(page, set);
+		header_checker.check_rule(page, set, checker);
+		style_checker.check_rule(page, set, checker);
 		if(set.get_is_test_found())
 		{
-			test_checker.check_rule(page, set);
+			test_checker.check_rule(page, set, checker);
 		}
 	}
 
-	header_checker.get_result(set);
+	header_checker.get_result(set, checker);
+	auto result = get_checker_info();
+	std::cout << result.get_head_messages().size() << std::endl;
 	
 	// checker.print_head_result();
 	// checker.print_tests_count();
-	return 0;
+	return checker;
 }
 
 void Parser::set_file(const std::string& new_file)
 {
 	lab_name = new_file;
 	tests = 0;
+}
+void Parser::set_rule_file(const std::string& new_file)
+{
+	set = Settings(new_file);
 }
 
 Checker Parser::get_checker_info()

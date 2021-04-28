@@ -1,15 +1,15 @@
-cmake_minimum_required(VERSION 3.1)
-project(Summary_work_test VERSION 1.0.0 LANGUAGES CXX)
+find_package(doctest 2.3.6 REQUIRED)
+find_library(LIBRARY libPDFNetC.so PATHS ../libs)
+include_directories(../libs)
 
-find_library(LIBRARY libPDFNetC.so PATHS Lib)
+add_executable(tests test.cpp)
 
-include_directories(libs)
+target_sources(tests PRIVATE ../src/Settings.cpp ../src/Settings.h ../src/Parser.cpp ../src/Parser.h ../src/Checker.cpp ../src/Checker.h ../src/Rule.h ../src/HeadChecker.cpp ../src/HeadChecker.h ../src/StyleChecker.cpp ../src/StyleChecker.h ../src/TestChecker.cpp ../src/TestChecker.h)
 
-set(CMAKE_CXX_STANDART 11)
-set(CMAKE_CXX_STANDARD_REQUIRED true)
+target_link_libraries(tests
+    PRIVATE
+        doctest::doctest
+        ${LIBRARY}
+)
 
-add_executable(test test.cpp)
-
-target_link_libraries(test ${LIBRARY} )
-
-# g++ main.cpp -I../libs -L../Lib -lPDFNetC -lstdc++ -lpthread -lm -lc -Wl,-rpath,../Lib -Wl,-rpath$ORIGIN -o myApp
+add_custom_target(check ALL COMMAND tests)

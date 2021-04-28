@@ -6,13 +6,14 @@
 
 #include "Rule.h"
 #include "Settings.h"
+#include "Checker.h"
 
 class StyleChecker : Rule
 {
 public:
 	StyleChecker();
 	
-	virtual void check_rule(pdftron::PDF::Page& page, Settings& set) override;
+	virtual void check_rule(pdftron::PDF::Page& page, Settings& set, Checker& checker) override;
 };
 
 #endif //SUMMARY_WORK_STYLECHECKER_H
