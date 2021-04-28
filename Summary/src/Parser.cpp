@@ -61,10 +61,6 @@ Checker Parser::parse()
 
 	header_checker.get_result(set, checker);
 	auto result = get_checker_info();
-	std::cout << result.get_test_messages().size() << std::endl;
-	
-	// checker.print_head_result();
-	// checker.print_tests_count();
 	return checker;
 }
 
@@ -73,6 +69,7 @@ void Parser::set_file(const std::string& new_file)
 	lab_name = new_file;
 	tests = 0;
 }
+
 void Parser::set_rule_file(const std::string& new_file)
 {
 	set = Settings(new_file);
