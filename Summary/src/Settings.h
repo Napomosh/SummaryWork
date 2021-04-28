@@ -3,8 +3,6 @@
 
 #include <nlohmann/json.hpp>
 
-using json = nlohmann::json;
-
 class Settings
 {
 public:
@@ -32,12 +30,12 @@ public:
 
 private:
 	std::string rules_file;
-	json json_rules = nullptr;
+	nlohmann::json json_rules = nullptr;
 	std::map<std::string, int> headers;
 	int test_count;
 	bool is_test_found = false;
 
-	json read_json(const std::string& file_name);
+	nlohmann::json read_json(const std::string& file_name);
 	void init_headers_rule();
 	void init_font_rule();
 	void init_test_rule();
