@@ -61,7 +61,7 @@ Checker Parser::parse()
 
 	header_checker.get_result(set, checker);
 	auto result = get_checker_info();
-	std::cout << result.get_style_messages().size() << std::endl;
+	std::cout << result.get_test_messages().size() << std::endl;
 	
 	// checker.print_head_result();
 	// checker.print_tests_count();

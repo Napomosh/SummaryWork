@@ -16,6 +16,11 @@ void Checker::add_style_message(const std::string& msg)
 	style_message_list.push_back(msg);
 }
 
+void Checker::add_test_message(const std::string& msg)
+{
+	test_message_list.push_back(msg);
+}
+
 void Checker::print_head_result()
 {
 	for(auto it = head_message_list.begin(); it != head_message_list.end(); ++it)
@@ -27,6 +32,11 @@ void Checker::print_head_result()
 std::list<std::string> Checker::get_head_messages()
 {
 	return head_message_list;
+}
+
+std::list<std::string> Checker::get_test_messages()
+{
+	return test_message_list;
 }
 
 std::list<std::string> Checker::get_style_messages()

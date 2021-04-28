@@ -52,6 +52,7 @@ void TestChecker::check_rule(Page& page, Settings& set, Checker& checker)
 				if(tmp == std::to_string(test_num))
 				{
 					std::cout << "Тест номер: " << tmp << " найден." << std::endl;
+					checker.add_test_message("Тест номер: " + tmp.ConvertToAscii() + " найден.");
 				}
 			}
 		}
@@ -59,10 +60,13 @@ void TestChecker::check_rule(Page& page, Settings& set, Checker& checker)
 	if(test_num < set.get_test_count())
 	{
 		std::cout << "Не найдено " << set.get_test_count() - test_num << " тестов." << std::endl;
+		checker.add_test_message("Не найдено " + std::to_string(set.get_test_count() - test_num) + " тестов.");
 	}
 	else if(test_num > set.get_test_count())
 	{
 		std::cout << "Найдено " <<  test_num - set.get_test_count() << " лишних тестов." << std::endl;
+		checker.add_test_message("Найдено " +  std::to_string (test_num - set.get_test_count()) + " лишних тестов.");
+
 	}
 	else
 	{
