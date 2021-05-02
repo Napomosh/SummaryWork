@@ -5,20 +5,14 @@
 #include "TestChecker.h"
 
 #include <iostream>
-#include <map>
 #include <string>
 
-#include <pdftron/PDF/PDFNet.h>
 #include <pdftron/PDF/PDFDoc.h>
 #include <pdftron/PDF/TextExtractor.h>
 
 using namespace pdftron;
 using namespace PDF;
 
-Parser::Parser(const std::string& input_path) : set(Settings("../resources/json_file.json")), tests(0)
-{
-	lab_name = input_path;
-}
 Parser::Parser(const std::string& input_path, const std::string& rule_path) : set(Settings(rule_path)), tests(0)
 {
 	lab_name = input_path;

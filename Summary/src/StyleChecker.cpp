@@ -8,11 +8,6 @@
 using namespace pdftron;
 using namespace PDF;
 
-StyleChecker::StyleChecker()
-{
-
-}
-
 void StyleChecker::check_rule(Page& page, Settings& set, Checker& checker)
 {
 	TextExtractor txt;

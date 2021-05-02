@@ -11,9 +11,9 @@
 class StyleChecker : Rule
 {
 public:
-	StyleChecker();
+	StyleChecker() = default;
 	
-	virtual void check_rule(pdftron::PDF::Page& page, Settings& set, Checker& checker) override;
+	void check_rule(pdftron::PDF::Page& page, Settings& set, Checker& checker) override;
 };
 
 #endif //SUMMARY_WORK_STYLECHECKER_H
