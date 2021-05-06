@@ -18,11 +18,20 @@ public:
 		int value_font_header { -1 };
 	} font_setting;
 
+	struct AdditionalOptions
+	{
+		bool table_of_contents { false };
+		bool pictures_check { false };
+	} additional_options;
+
+
 	int get_count_header(std::string& header);
-	bool get_is_test_found();
-	int get_test_count();
+	int get_count_table_of_content(std::string& header);
+	bool get_is_test_found() const;
+	int get_test_count() const;
 	void set_is_test_found(bool value);
 	std::map<std::string, int>::iterator find_header(const std::string& header);
+	std::map<std::string, int>::iterator find_header_in_table_of_content(const std::string& header);
 	std::map<std::string, int>::iterator get_begin_header();
 	std::map<std::string, int>::iterator get_end_header();
 
@@ -30,6 +39,7 @@ private:
 	std::string rules_file;
 	nlohmann::json json_rules = nullptr;
 	std::map<std::string, int> headers;
+	std::map<std::string, int> table_of_content;
 	int test_count{ 0 };
 	bool is_test_found = false;
 
@@ -39,6 +49,7 @@ private:
 	void init_headers_rule();
 	void init_font_rule();
 	void init_test_rule();
+	void init_additionals();
 };
 
 

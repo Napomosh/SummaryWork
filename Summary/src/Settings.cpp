@@ -14,6 +14,7 @@ void Settings::init_settings(const std::string& file_name)
 	init_headers_rule();
 	init_font_rule();
 	init_test_rule();
+	init_additionals();
 }
 void Settings::init_headers_rule()
 {
@@ -32,15 +33,22 @@ void Settings::init_test_rule()
 {
 	test_count = json_rules["Количество тестов"];
 }
+void Settings::init_additionals()
+{
+	additional_options.pictures_check = json_rules["Дополнительные опции"]["Подписи к картинкам"];
+	additional_options.table_of_contents = json_rules["Дополнительные опции"]["Оглавление"];
+	std::map<std::string, int> headers1 = json_rules["Заголовки"];
+	table_of_content = headers1;
+}
 int Settings::get_count_header(std::string& header)
 {
 	return headers.count(header);
 }
-bool Settings::get_is_test_found()
+bool Settings::get_is_test_found() const
 {
 	return is_test_found;
 }
-int Settings::get_test_count()
+int Settings::get_test_count() const
 {
 	return test_count;
 }
@@ -70,3 +78,14 @@ nlohmann::json Settings::read_json(const std::string& file_name)
 	json_file.close();
 	return j;
 }
+
+int Settings::get_count_table_of_content(std::string &header)
+{
+	return table_of_content.count(header);
+}
+
+std::map<std::string, int>::iterator Settings::find_header_in_table_of_content(const std::string &header)
+{
+	return table_of_content.find(header);
+}
+

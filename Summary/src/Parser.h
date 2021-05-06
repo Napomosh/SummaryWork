@@ -12,11 +12,16 @@ public:
 	Parser(const std::string& input_path, const std::string& rule_path);
 	Parser();
 
-	Checker parse();
+	int parse();
 	void set_rule_file(const std::string& new_file);
 	void set_file(const std::string& new_file);
 	Checker get_checker_info();
 
+	enum
+	{
+		SUCCESS = 0,
+		LAB_FILE_NOT_DEFINEDED = 1
+	};
 private:
 	int tests;
 	std::string lab_name;

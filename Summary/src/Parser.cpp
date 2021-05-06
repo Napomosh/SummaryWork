@@ -3,6 +3,7 @@
 #include "HeadChecker.h"
 #include "StyleChecker.h"
 #include "TestChecker.h"
+#include "TableOfContentChecker.h"
 
 #include <iostream>
 #include <string>
@@ -17,16 +18,16 @@ Parser::Parser(const std::string& input_path, const std::string& rule_path) : se
 {
 	lab_name = input_path;
 }
-Parser::Parser() : set(Settings("../resources/json_file.json")), tests(0)
+Parser::Parser() : set(Settings("../resources/rule_for_lab.json")), tests(0)
 {
 	lab_name = "none";
 }
 
-Checker Parser::parse()
+int Parser::parse()
 {
 	if (lab_name == "none")
 	{
-		
+		return LAB_FILE_NOT_DEFINEDED;
 	}
 	PDFDoc doc(lab_name);
 	doc.InitSecurityHandler();
@@ -35,6 +36,7 @@ Checker Parser::parse()
 	HeadChecker header_checker;
 	StyleChecker style_checker;
 	TestChecker test_checker;
+	TableOfContentChecker table_of_content_checker;
 
 	for (int i = begin_page; (page = doc.GetPage(i)) != 0; i++)
 	{
@@ -44,6 +46,10 @@ Checker Parser::parse()
 			std::cout << "Page not found." << std::endl;
 			continue;
 		}
+		if (i == 2 && set.additional_options.table_of_contents)
+		{
+			table_of_content_checker.check_rule(page, set, checker);
+		}
 
 		header_checker.check_rule(page, set, checker);
 		style_checker.check_rule(page, set, checker);
@@ -52,10 +58,10 @@ Checker Parser::parse()
 			test_checker.check_rule(page, set, checker);
 		}
 	}
-
 	header_checker.get_result(set, checker);
 	auto result = get_checker_info();
-	return checker;
+	
+	return SUCCESS;
 }
 
 void Parser::set_file(const std::string& new_file)
