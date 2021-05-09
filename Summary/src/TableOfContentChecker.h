@@ -6,9 +6,9 @@
 class TableOfContentChecker : Rule
 {
 public:
-	void check_rule(pdftron::PDF::Page &page, Settings &set, Checker &checker) override;
+	void check_rule(pdftron::PDF::Page &page, Settings &set, Result &checker) override;
 private:
-	void parse_headers(pdftron::PDF::Line line, pdftron::PDF::Style style, Settings &settings, Checker &checker);
+	void parse_headers(pdftron::PDF::Line line, pdftron::PDF::Style style, Settings &settings, Result &checker);
 };
 
 

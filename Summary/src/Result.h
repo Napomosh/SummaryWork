@@ -1,13 +1,13 @@
-#ifndef SUMMARY_WORK_CHECKER_H
-#define SUMMARY_WORK_CHECKER_H
+#ifndef SUMMARY_WORK_RESULT_H
+#define SUMMARY_WORK_RESULT_H
 
 #include <string>
 #include <list>
 
-class Checker
+class Result
 {
 public:
-	Checker();
+	Result();
 
 	void add_head_message(const std::string& msg);
 	void add_style_message(const std::string& msg);
@@ -29,4 +29,4 @@ private:
 	int tests;
 };
 
-#endif //SUMMARY_WORK_CHECKER_H
+#endif //SUMMARY_WORK_RESULT_H

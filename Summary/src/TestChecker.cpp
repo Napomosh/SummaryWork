@@ -14,7 +14,7 @@ TestChecker::TestChecker()
 
 }
 
-void TestChecker::check_rule(Page& page, Settings& set, Checker& checker)
+void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 {
 	TextExtractor txt;
 	txt.Begin(page);

@@ -8,7 +8,7 @@
 using namespace pdftron;
 using namespace PDF;
 
-void TableOfContentChecker::check_rule(Page &page, Settings &set, Checker &checker)
+void TableOfContentChecker::check_rule(Page &page, Settings &set, Result &checker)
 {
 	TextExtractor txt;
 	txt.Begin(page);
@@ -22,7 +22,7 @@ void TableOfContentChecker::check_rule(Page &page, Settings &set, Checker &check
 }
 
 void TableOfContentChecker::parse_headers(pdftron::PDF::Line line, pdftron::PDF::Style style, Settings &settings,
-                                          Checker &checker)
+                                          Result &checker)
 {
 	std::string head;
 	for (TextExtractor::Word word = line.GetFirstWord(); word.IsValid(); word = word.GetNextWord())

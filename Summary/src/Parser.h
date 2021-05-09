@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Settings.h"
-#include "Checker.h"
+#include "Result.h"
 #include <pdftron/PDF/TextExtractor.h>
 
 class Parser
@@ -15,7 +15,7 @@ public:
 	int parse();
 	void set_rule_file(const std::string& new_file);
 	void set_file(const std::string& new_file);
-	Checker get_checker_info();
+	Result get_checker_info();
 
 	enum
 	{
@@ -26,7 +26,7 @@ private:
 	int tests;
 	std::string lab_name;
 	Settings set;
-	Checker checker;
+	Result checker;
 };
 
 #endif //SUMMARY_WORK_PARSER_H

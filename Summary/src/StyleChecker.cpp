@@ -8,7 +8,7 @@
 using namespace pdftron;
 using namespace PDF;
 
-void StyleChecker::check_rule(Page& page, Settings& set, Checker& checker)
+void StyleChecker::check_rule(Page& page, Settings& set, Result& checker)
 {
 	TextExtractor txt;
 	txt.Begin(page);

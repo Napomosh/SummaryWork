@@ -5,14 +5,14 @@
 #include <pdftron/PDF/PDFDoc.h>
 
 #include "Settings.h"
-#include "Checker.h"
+#include "Result.h"
 
 class Rule
 {
 public:
 	Rule() {}
 
-	virtual void check_rule(pdftron::PDF::Page& page, Settings& set, Checker& checker) = 0;
+	virtual void check_rule(pdftron::PDF::Page& page, Settings& set, Result& checker) = 0;
 };
 
 #endif //SUMMARY_WORK_RULE_H

@@ -6,14 +6,14 @@
 
 #include "Rule.h"
 #include "Settings.h"
-#include "Checker.h"
+#include "Result.h"
 
 class TestChecker : Rule
 {
 public:
 	TestChecker();
 	
-	virtual void check_rule(pdftron::PDF::Page& page, Settings& set, Checker& checker) override;
+	virtual void check_rule(pdftron::PDF::Page& page, Settings& set, Result& checker) override;
 };
 
 #endif //SUMMARY_WORK_TESTCHECKER_H

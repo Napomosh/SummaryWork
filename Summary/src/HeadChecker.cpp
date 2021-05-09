@@ -13,7 +13,7 @@ HeadChecker::HeadChecker() : is_prev_head(false)
 
 }
 
-void HeadChecker::check_headers(const std::string& head, TextExtractor::Line& line, Settings& set, Checker& checker)
+void HeadChecker::check_headers(const std::string& head, TextExtractor::Line& line, Settings& set, Result& checker)
 {
 	auto cur_header = set.find_header(head);
 	auto line_style = line.GetStyle();
@@ -47,7 +47,7 @@ void HeadChecker::check_headers(const std::string& head, TextExtractor::Line& li
 	}
 }
 
-void HeadChecker::parse_headers(TextExtractor::Line& line, TextExtractor::Style& line_style, Settings& set, Checker& checker)
+void HeadChecker::parse_headers(TextExtractor::Line& line, TextExtractor::Style& line_style, Settings& set, Result& checker)
 {
 	std::string head;
 	for (TextExtractor::Word word = line.GetFirstWord(); word.IsValid(); word = word.GetNextWord())
@@ -90,7 +90,7 @@ void HeadChecker::set_prev_flag(bool value)
 	is_prev_head = value;
 }
 
-void HeadChecker::check_rule(Page& page, Settings& set, Checker& checker)
+void HeadChecker::check_rule(Page& page, Settings& set, Result& checker)
 {
 	TextExtractor txt;
 	txt.Begin(page);
@@ -98,12 +98,11 @@ void HeadChecker::check_rule(Page& page, Settings& set, Checker& checker)
 	TextExtractor::Style line_style;
 	for (line = txt.GetFirstLine(); line.IsValid(); line = line.GetNextLine())
 	{
+//		std::cout << line.GetQuad() << std::endl;
 		line_style = line.GetStyle();
 		if (line_style.GetFontSize() > (set.font_setting.value_font_header - 0.5) && line_style.GetFontSize() < (set.font_setting.value_font_header + 0.5)) {
-			
 			parse_headers(line, line_style, set, checker);
 		}
-		
 		else
 		{
 			set_prev_flag(false);
@@ -111,7 +110,7 @@ void HeadChecker::check_rule(Page& page, Settings& set, Checker& checker)
 	}
 }
 
-void HeadChecker::get_result(Settings& set, Checker& checker)
+void HeadChecker::get_result(Settings& set, Result& checker)
 {
 	for (auto it = set.get_begin_header(); it != set.get_end_header(); ++it)
 	{
