@@ -15,6 +15,7 @@ void Settings::init_settings(const std::string& file_name)
 	init_font_rule();
 	init_test_rule();
 	init_additionals();
+	init_title_key_words();
 }
 void Settings::init_headers_rule()
 {
@@ -40,6 +41,12 @@ void Settings::init_additionals()
 	std::map<std::string, int> headers1 = json_rules["Заголовки"];
 	table_of_content = headers1;
 }
+void Settings::init_title_key_words()
+{
+	std::map<std::string, int> title_key_words1 = json_rules["Набор ключевых слов для титульного листа"];
+	title_key_words = title_key_words1;
+}
+
 int Settings::get_count_header(std::string& header)
 {
 	return headers.count(header);
@@ -88,4 +95,3 @@ std::map<std::string, int>::iterator Settings::find_header_in_table_of_content(c
 {
 	return table_of_content.find(header);
 }
-

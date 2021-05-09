@@ -12,13 +12,10 @@ void PicturesChecker::check_rule(Page &page, Settings &set, Result &checker)
 	Element element;
 	while ((element = page_reader.Next()) != 0)
 	{
+
 		if(element.GetType() == Element::e_group_begin)
 		{
 			count_picture_caption(page_reader);
-		}
-		else if (element.GetType() == Element::e_image)
-		{
-			expected_images++;
 		}
 	}
 	page_reader.End();
@@ -32,16 +29,44 @@ void PicturesChecker::count_picture_caption(ElementReader& page_reader)
 		if (element.GetType() == Element::e_text)
 		{
 			result_str += element.GetTextString().ConvertToUtf8();
+//			if(result_str == "Рис")
+//			{
+//				element = page_reader.Next();
+//				element = page_reader.Next();
+//			}
+		}
+		else if (element.GetType() == Element::e_image)
+		{
+			images++;
 		}
 	}
+
+
 	if (result_str.substr(0, 14) == "Рисунок")
 	{
-		actual_images++;
+		try
+		{
+			if (std::stoi(result_str.substr(14, result_str.find('-', 14))) == prev_pict_number + 1)
+			{
+				capture_image++;
+				std::cout << "Картинки идут подряд" << std::endl;
+				prev_pict_number++;
+			}
+			else
+			{
+				std::cout << "Картинки идут не подряд" << std::endl;
+			}
+		}
+		catch  (std::exception& e)
+		{
+			std::cout << "Некорректное имя рисунков" << std::endl;
+		}
 	}
 }
 
-bool PicturesChecker::check()
+bool PicturesChecker::check() const
 {
-	std::cout << "Результат сверки картинок: " << (expected_images == actual_images) << std::endl;
-	return expected_images == actual_images;
+	std::cout << images << "   " << capture_image << std::endl;
+	std::cout << "Результат сверки картинок: " << (images == capture_image) << std::endl;
+	return images == capture_image;
 }

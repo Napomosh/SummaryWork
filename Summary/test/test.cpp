@@ -37,7 +37,7 @@ using namespace pdftron;
 TEST_CASE("Check kurs.pdf")
 {
 	PDFNet::Initialize();
-	std::string input_path{"../../resources/kurs.pdf"};
+	std::string input_path{"../../resources/e.pdf"};
 	Parser parser = Parser(input_path, "../../resources/rule_for_kurs.json");
 	CHECK_EQ(parser.parse(), parser.SUCCESS);
 	PDFNet::Terminate();

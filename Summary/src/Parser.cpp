@@ -5,6 +5,7 @@
 #include "TestChecker.h"
 #include "TableOfContentChecker.h"
 #include "PicturesChecker.h"
+#include "TitleChecker.h"
 
 #include <iostream>
 #include <string>
@@ -39,13 +40,18 @@ int Parser::parse()
 	TestChecker test_checker;
 	TableOfContentChecker table_of_content_checker;
 	PicturesChecker pict_checker;
+	TitleChecker title_checker;
 
 	for (int i = begin_page; (page = doc.GetPage(i)) != 0; i++)
 	{
-		// std::cout << page.Box.e_media << std::endl;
 		if (!page)
 		{
 			std::cout << "Page not found." << std::endl;
+			continue;
+		}
+		if (i == 1)
+		{
+			title_checker.check_rule(page, set, checker);
 			continue;
 		}
 
@@ -56,7 +62,7 @@ int Parser::parse()
 
 		header_checker.check_rule(page, set, checker);
 		style_checker.check_rule(page, set, checker);
-		std::cout << set.additional_options.pictures_check << std::endl;
+
 		if (set.additional_options.pictures_check)
 		{
 			pict_checker.check_rule(page, set, checker);

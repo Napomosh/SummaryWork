@@ -9,10 +9,11 @@ class PicturesChecker : Rule
 {
 public:
 	void check_rule(pdftron::PDF::Page &page, Settings &set, Result &checker) override;
-	bool check ();
+	bool check () const;
 private:
-	int expected_images = { 0 };
-	int actual_images = { 0 };
+	int images = { 0 };
+	int capture_image = {0 };
+	int prev_pict_number = { 0 };
 	void count_picture_caption(pdftron::PDF::ElementReader& page_reader);
 };
 

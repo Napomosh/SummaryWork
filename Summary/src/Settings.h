@@ -40,6 +40,7 @@ private:
 	nlohmann::json json_rules = nullptr;
 	std::map<std::string, int> headers;
 	std::map<std::string, int> table_of_content;
+	std::map<std::string, int> title_key_words;
 	int test_count{ 0 };
 	bool is_test_found = false;
 
@@ -50,6 +51,7 @@ private:
 	void init_font_rule();
 	void init_test_rule();
 	void init_additionals();
+	void init_title_key_words();
 };
 
 
