@@ -95,3 +95,15 @@ std::map<std::string, int>::iterator Settings::find_header_in_table_of_content(c
 {
 	return table_of_content.find(header);
 }
+
+std::map<std::string, int>::iterator Settings::find_key_word(const std::string &word)
+{
+	return title_key_words.find(word);
+}
+
+int Settings::get_count_word(std::string &word)
+{
+	return title_key_words.count(word);
+}
+
+

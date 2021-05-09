@@ -20,7 +20,7 @@ Parser::Parser(const std::string& input_path, const std::string& rule_path) : se
 {
 	lab_name = input_path;
 }
-Parser::Parser() : set(Settings("../resources/rule_for_lab.json")), tests(0)
+Parser::Parser() : set(Settings()), tests(0)
 {
 	lab_name = "none";
 }
@@ -34,7 +34,6 @@ int Parser::parse()
 	PDFDoc doc(lab_name);
 	doc.InitSecurityHandler();
 	Page page;
-	int begin_page = 1;
 	HeadChecker header_checker;
 	StyleChecker style_checker;
 	TestChecker test_checker;
@@ -42,7 +41,7 @@ int Parser::parse()
 	PicturesChecker pict_checker;
 	TitleChecker title_checker;
 
-	for (int i = begin_page; (page = doc.GetPage(i)) != 0; i++)
+	for (int i = 1; (page = doc.GetPage(i)) != 0; i++)
 	{
 		if (!page)
 		{

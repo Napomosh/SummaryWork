@@ -25,7 +25,7 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 	for (line = txt.GetFirstLine(); line.IsValid(); line = line.GetNextLine())
 	{
 		for (TextExtractor::Word word = line.GetFirstWord(); word.IsValid(); word = word.GetNextWord())
-		{.
+		{
 			int sz = word.GetStringLen();
 			if (sz == 0)
 			{

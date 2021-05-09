@@ -66,7 +66,6 @@ void PicturesChecker::count_picture_caption(ElementReader& page_reader)
 
 bool PicturesChecker::check() const
 {
-	std::cout << images << "   " << capture_image << std::endl;
 	std::cout << "Результат сверки картинок: " << (images == capture_image) << std::endl;
 	return images == capture_image;
 }

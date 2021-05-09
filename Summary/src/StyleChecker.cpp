@@ -24,14 +24,14 @@ void StyleChecker::check_rule(Page& page, Settings& set, Result& checker)
 		
 		else if(line_style.GetFontName().ConvertToUtf8() != set.font_setting.name_font)
 		{
-			std::cout << "Строка номер: " << line.GetCurrentNum() << " Шрифт отличается от заданного" << std::endl;
+//			std::cout << "Строка номер: " << line.GetCurrentNum() << " Шрифт отличается от заданного" << std::endl;
 			checker.add_style_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Шрифт отличается от заданного");
 			continue;
 		}
 		else if((line_style.GetFontSize() > (set.font_setting.value_font + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font - 0.5)) &&
 				(line_style.GetFontSize() > (set.font_setting.value_font_header + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font_header - 0.5)))
 		{
-			std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта отличается от заданного" << std::endl;
+//			std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта отличается от заданного" << std::endl;
 			checker.add_style_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Размер шрифта отличается от заданного");
 			continue;
 		}

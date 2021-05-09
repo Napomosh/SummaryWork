@@ -35,6 +35,9 @@ public:
 	std::map<std::string, int>::iterator get_begin_header();
 	std::map<std::string, int>::iterator get_end_header();
 
+	std::map<std::string, int>::iterator find_key_word(const std::string& word);
+	int get_count_word(std::string& word);
+
 private:
 	std::string rules_file;
 	nlohmann::json json_rules = nullptr;
