@@ -14,8 +14,8 @@
 Для выполнения программы для своих отчетов необходимо запустить программу вручную:
 
 1) Переходим в директорию build
-2) запускаем main и передаем параметры -r <имя файла с правилами> -l <имя файла с отчетом>
-3) Например, ./main -l /home/alex/CLionProjects/SummaryWork/Summary/resources/lab19.pdf -r /home/alex/CLionProjects/SummaryWork/Summary/resources/json_file.json (пути будут другие)
+2) запускаем main и передаем параметры -r <имя файла с правилами> -l <имя файла с отчетом> -s <имя имя файла с исходным кодом>
+3) Например, ./main -l /home/alex/CLionProjects/SummaryWork/Summary/resources/lab19.pdf -r /home/alex/CLionProjects/SummaryWork/Summary/resources/json_file.json  -s /home/alex/CLionProjects/SummaryWork/Summary/src/Settings.cpp (пути будут другие)
 
 
 Если скрипты выдают ошибку: bash: ./scripts/<script_name>.sh: Permission denied, то разрешаем полный доступ к скриптам командой chmod 777 -R scripts
