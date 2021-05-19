@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	std::string input_path = lab_name.getValue();
 	std::string rule_path = rules_name.getValue();
 	std::string sources_path = sources_name.getValue();
-	std::string cppcheck_command = "clang-format --dry-run " + sources_path + " &> result";
+	std::string cppcheck_command = "clang-format --dry-run " + sources_path + " &> result.txt";
 	system(cppcheck_command.c_str());
 
 	Parser parser;
