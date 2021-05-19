@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	std::string input_path = lab_name.getValue();
 	std::string rule_path = rules_name.getValue();
 	std::string sources_path = sources_name.getValue();
-	std::string cppcheck_command = "clang-format " + sources_path;
+	std::string cppcheck_command = "clang-format --dry-run " + sources_path + " &> result";
 	system(cppcheck_command.c_str());
 
 	Parser parser;
@@ -31,6 +31,6 @@ int main(int argc, char* argv[])
 	PDFNet::Initialize();
 	parser.parse();
 	PDFNet::Terminate();
-}
 
-// g++ main.cpp -I../libs -L../Lib -lPDFNetC -lstdc++ -lpthread -lm -lc -Wl,-rpath,../Lib -Wl,-rpath$ORIGIN -o myApp
+	return 0;
+}
