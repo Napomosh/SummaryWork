@@ -13,7 +13,12 @@ class TestChecker : Rule
 public:
 	TestChecker();
 	
-	virtual void check_rule(pdftron::PDF::Page& page, Settings& set, Result& checker) override;
+	void check_rule(pdftron::PDF::Page& page, Settings& set, Result& checker) override;
+
+private:
+	int LevenshteinDistance(const std::string& source, const std::string& target);
+
+	bool is_test;
 };
 
 #endif //SUMMARY_WORK_TESTCHECKER_H

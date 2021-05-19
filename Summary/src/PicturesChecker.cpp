@@ -29,11 +29,11 @@ void PicturesChecker::count_picture_caption(ElementReader& page_reader)
 		if (element.GetType() == Element::e_text)
 		{
 			result_str += element.GetTextString().ConvertToUtf8();
-//			if(result_str == "Рис")
-//			{
-//				element = page_reader.Next();
-//				element = page_reader.Next();
-//			}
+			if(result_str == "Рис")
+			{
+				element = page_reader.Next();
+				element = page_reader.Next();
+			}
 		}
 		else if (element.GetType() == Element::e_image)
 		{
@@ -42,11 +42,11 @@ void PicturesChecker::count_picture_caption(ElementReader& page_reader)
 	}
 
 
-	if (result_str.substr(0, 14) == "Рисунок")
+	if (result_str.substr(0, 6) == "Рис")
 	{
 		try
 		{
-			if (std::stoi(result_str.substr(14, result_str.find('-', 14))) == prev_pict_number + 1)
+			if (std::stoi(result_str.substr(6, result_str.find('-', 6))) == prev_pict_number + 1)
 			{
 				capture_image++;
 				std::cout << "Картинки идут подряд" << std::endl;
@@ -66,6 +66,6 @@ void PicturesChecker::count_picture_caption(ElementReader& page_reader)
 
 bool PicturesChecker::check() const
 {
-	std::cout << "Результат сверки картинок: " << (images == capture_image) << std::endl;
+	std::cout << "Результат сверки картинок: " << (images == capture_image) << "          " << images << "          " << capture_image << std::endl;
 	return images == capture_image;
 }

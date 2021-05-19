@@ -2,12 +2,44 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include <pdftron/PDF/PDFNet.h>
 #include <pdftron/PDF/TextExtractor.h>
 
 using namespace pdftron;
 using namespace PDF;
+
+int TestChecker::LevenshteinDistance(const std::string& source, const std::string& target)
+{
+	if (source.size() > target.size()) {
+		return LevenshteinDistance(target, source);
+	}
+
+	const int min_size = source.size(), max_size = target.size();
+	std::vector<int> lev_dist(min_size + 1);
+
+	for (int i = 0; i <= min_size; ++i) {
+		lev_dist[i] = i;
+	}
+
+	for (int j = 1; j <= max_size; ++j) {
+		int previous_diagonal = lev_dist[0], previous_diagonal_save;
+		++lev_dist[0];
+
+		for (int i = 1; i <= min_size; ++i) {
+			previous_diagonal_save = lev_dist[i];
+			if (source[i - 1] == target[j - 1]) {
+				lev_dist[i] = previous_diagonal;
+			} else {
+				lev_dist[i] = std::min(std::min(lev_dist[i - 1], lev_dist[i]), previous_diagonal) + 1;
+			}
+			previous_diagonal = previous_diagonal_save;
+		}
+	}
+
+	return lev_dist[min_size];
+}
 
 TestChecker::TestChecker()
 {
@@ -19,7 +51,6 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 	TextExtractor txt;
 	txt.Begin(page);
 	TextExtractor::Line line;
-	TextExtractor::Style line_style;
 	std::string test;
 	int test_num = 0;
 	for (line = txt.GetFirstLine(); line.IsValid(); line = line.GetNextLine())
@@ -39,6 +70,7 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 			// std::cout << test << std::endl;
 			if (test == "Тест")
 			{
+				is_test = true;
 				test_num++; 
 				word = word.GetNextWord();
 				if(!word.IsValid())
@@ -53,6 +85,10 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 					std::cout << "Тест номер: " << tmp << " найден." << std::endl;
 					checker.add_test_message("Тест номер: " + tmp.ConvertToAscii() + " найден.");
 				}
+			}
+			if (is_test)
+			{
+
 			}
 		}
 	}
