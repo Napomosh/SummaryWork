@@ -12,13 +12,21 @@ class TestChecker : Rule
 {
 public:
 	TestChecker();
-	
+	void check_result(Settings& set, Result& checker);
 	void check_rule(pdftron::PDF::Page& page, Settings& set, Result& checker) override;
 
 private:
 	int LevenshteinDistance(const std::string& source, const std::string& target);
 
-	bool is_test;
+	bool is_test{false};
+
+	int cur_test {0};
+	int test_num {0};
+	int errors {0};
+	std::vector<std::list<std::string>> test_tokens;
+	void compare_tests(pdftron::PDF::TextExtractor::Line& line);
+
+	void compare_tokens();
 };
 
 #endif //SUMMARY_WORK_TESTCHECKER_H
