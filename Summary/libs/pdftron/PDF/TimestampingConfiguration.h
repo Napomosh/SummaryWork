@@ -74,7 +74,7 @@ public:
 	 *
 	 * @param in_opts -- a set of verification options to try to use
 	 * @return A result object containing information about the status of the configuration test
-	 * and any errors that occurred during it.
+	 * and any repeats that occurred during it.
 	 */
 	TimestampingTestResult TestConfiguration(const pdftron::PDF::VerificationOptions& in_opts) const;
 

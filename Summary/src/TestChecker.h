@@ -22,11 +22,11 @@ private:
 
 	int cur_test {0};
 	int test_num {0};
-	int errors {0};
+	int repeats {0};
 	std::vector<std::list<std::string>> test_tokens;
-	void compare_tests(pdftron::PDF::TextExtractor::Line& line);
+	void compare_tests(pdftron::PDF::TextExtractor::Line& line, Result& checker);
 
-	void compare_tokens();
+	void compare_tokens(Result& checker);
 };
 
 #endif //SUMMARY_WORK_TESTCHECKER_H

@@ -10,7 +10,7 @@ public:
 	void check_rule(pdftron::PDF::Page &page, Settings &set, Result &checker) override;
 
 private:
-	void parse_words(pdftron::PDF::TextExtractor::Line& line, Settings& set);
+	void parse_words(pdftron::PDF::TextExtractor::Line& line, Settings& set, Result &checker);
 };
 
 

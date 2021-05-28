@@ -83,7 +83,7 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 				tmp.Assign(word.GetString(), sz);
 				if(tmp == std::to_string(test_num))
 				{
-					std::cout << "Тест номер: " << tmp << " найден." << std::endl;
+//					std::cout << "Тест номер: " << tmp << " найден." << std::endl;
 					checker.add_test_message("Тест номер: " + tmp.ConvertToAscii() + " найден.");
 				}
 				cur_test++;
@@ -91,7 +91,7 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 			}
 			else if (is_test && line.IsValid())
 			{
-				compare_tests(line);
+				compare_tests(line, checker);
 				break;
 			}
 		}
@@ -99,11 +99,11 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 	check_result(set, checker);
 	if(!test_tokens.empty())
 	{
-		compare_tokens();
+		compare_tokens(checker);
 	}
 }
 
-void TestChecker::compare_tests(TextExtractor::Line& line)
+void TestChecker::compare_tests(TextExtractor::Line& line, Result& checker)
 {
 	UString uni_str;
 	for (TextExtractor::Word word = line.GetFirstWord(); word.IsValid(); word = word.GetNextWord())
@@ -118,9 +118,9 @@ void TestChecker::compare_tests(TextExtractor::Line& line)
 			tmp.Assign(word.GetString(), sz);
 			if(tmp.ConvertToUtf8() == std::to_string(cur_test))
 			{
-				std::cout << "Тест номер: " << tmp << " найден." << std::endl;
+//				std::cout << "Тест номер: " << tmp << " найден." << std::endl;
 				test_num++;
-//				checker.add_test_message("Тест номер: " + tmp.ConvertToAscii() + " найден.");
+				checker.add_test_message("Тест номер: " + tmp.ConvertToAscii() + " найден.");
 			}
 			return;
 		}
@@ -128,7 +128,7 @@ void TestChecker::compare_tests(TextExtractor::Line& line)
 	}
 }
 
-void TestChecker::compare_tokens()
+void TestChecker::compare_tokens(Result& checker)
 {
 	//  Выбираем тест, который будем проверять сейчас
 	for(int test = 0; test < test_num; test++)
@@ -155,11 +155,14 @@ void TestChecker::compare_tokens()
 			{
 				if(*it == *it_compare)
 				{
-					errors++;
+					repeats++;
 				}
 			}
-			std::cout << test << "         " << compare_with_test << "            " << errors << "             " << (errors / (float)test_tokens[test].size() * 100) << "%" << std::endl;
-			errors = 0;
+//			std::cout << test << "         " << compare_with_test << "            " << repeats << "             " << (repeats / (float)test_tokens[test].size() * 100) << "%" << std::endl;
+			checker.add_test_message(std::to_string(test) + "         " + std::to_string(compare_with_test) +
+									"            " + std::to_string(repeats) + "             " +
+									std::to_string(repeats / (float)test_tokens[test].size() * 100) + "%" );
+			repeats = 0;
 		}
 	}
 }
@@ -168,12 +171,12 @@ void TestChecker::check_result(Settings& set, Result& checker)
 {
 	if(test_num < set.get_test_count())
 	{
-		std::cout << "Не найдено " << set.get_test_count() - test_num << " тестов." << std::endl;
+//		std::cout << "Не найдено " << set.get_test_count() - test_num << " тестов." << std::endl;
 		checker.add_test_message("Не найдено " + std::to_string(set.get_test_count() - test_num) + " тестов.");
 	}
 	else if(test_num > set.get_test_count())
 	{
-		std::cout << "Найдено " <<  test_num - set.get_test_count() << " лишних тестов." << std::endl;
+//		std::cout << "Найдено " <<  test_num - set.get_test_count() << " лишних тестов." << std::endl;
 		checker.add_test_message("Найдено " +  std::to_string (test_num - set.get_test_count()) + " лишних тестов.");
 
 	}

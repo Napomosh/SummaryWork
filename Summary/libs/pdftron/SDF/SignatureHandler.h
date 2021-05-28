@@ -45,7 +45,7 @@ public:
 	 * Resets any data appending and signature calculations done so far. This method should allow PDFNet to restart the
      * whole signature calculation process. It is important that when this method is invoked, any data processed with
      * the AppendData method should be discarded.
-	 * @return True if there are no errors, otherwise false.
+	 * @return True if there are no repeats, otherwise false.
 	 */
 	virtual bool Reset();
     

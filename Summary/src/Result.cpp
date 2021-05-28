@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "Result.h"
 
 Result::Result() : tests(0)
@@ -23,9 +24,9 @@ void Result::add_test_message(const std::string& msg)
 
 void Result::print_head_result()
 {
-	for(auto it = head_message_list.begin(); it != head_message_list.end(); ++it)
+	for(auto& it : head_message_list)
 	{
-		std::cout << *it << std::endl;
+		std::cout << it << std::endl;
 	}
 }
 
@@ -57,4 +58,92 @@ void Result::inc_tests_value(int value)
 void Result::print_tests_count()
 {
 	std::cout << tests << std::endl;
+}
+
+void Result::print_results()
+{
+	print_head_result();
+	print_style_result();
+	print_tableofcontent_result();
+	print_title_result();
+}
+
+void Result::print_style_result()
+{
+	for(auto& it : style_message_list)
+	{
+		std::cout << it << std::endl;
+	}
+}
+
+void Result::add_tableofcontent_result(const std::string &msg)
+{
+	tableofcontent_list.push_back(msg);
+}
+
+void Result::print_tableofcontent_result()
+{
+	for(auto& it : tableofcontent_list)
+	{
+		std::cout << it << std::endl;
+	}
+}
+
+void Result::add_title_message(const std::string &msg)
+{
+	title_list.push_back(msg);
+}
+
+void Result::print_title_result()
+{
+	for(auto& it : title_list)
+	{
+		std::cout << it << std::endl;
+	}
+}
+
+void Result::write_result_in_file(const std::string& file)
+{
+	std::ofstream file_stream;
+	file_stream.open(file);
+	if(file_stream.is_open())
+	{
+		write_headers_in_file(file_stream);
+		write_style_in_file(file_stream);
+		write_tableofcontent_in_file(file_stream);
+		write_title_in_file(file_stream);
+	}
+	file_stream.close();
+}
+
+void Result::write_headers_in_file(std::ofstream& out)
+{
+	for(auto& item : head_message_list)
+	{
+		out << item << "\n";
+	}
+}
+
+void Result::write_style_in_file(std::ofstream& out)
+{
+	for(auto& item : style_message_list)
+	{
+		out << item << "\n";
+	}
+}
+
+void Result::write_tableofcontent_in_file(std::ofstream &out)
+{
+	for(auto& item : tableofcontent_list)
+	{
+		out << item << "\n";
+	}
+}
+
+void Result::write_title_in_file(std::ofstream &out)
+{
+	for(auto& item : title_list)
+	{
+		out << item << "\n";
+	}
 }

@@ -35,7 +35,7 @@ public:
 	/**
 	 * Retrieves the trust verification status.
 	 * 
-	 * @return A boolean representing whether or not the trust verification operation was successful. Whether trust-related warnings are treated as errors or not depend on the VerificationOptions used for the verification operation.
+	 * @return A boolean representing whether or not the trust verification operation was successful. Whether trust-related warnings are treated as repeats or not depend on the VerificationOptions used for the verification operation.
 	 */
 	bool WasSuccessful() const;
 	

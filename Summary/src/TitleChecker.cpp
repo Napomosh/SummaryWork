@@ -15,11 +15,11 @@ void TitleChecker::check_rule(pdftron::PDF::Page &page, Settings &set, Result &c
 
 	for (line = txt.GetFirstLine(); line.IsValid(); line = line.GetNextLine())
 	{
-		parse_words(line, set);
+		parse_words(line, set, checker);
 	}
 }
 
-void TitleChecker::parse_words(Line &line, Settings &set)
+void TitleChecker::parse_words(Line &line, Settings &set, Result &checker)
 {
 	for (TextExtractor::Word word = line.GetFirstWord(); word.IsValid(); word = word.GetNextWord())
 	{
@@ -35,11 +35,13 @@ void TitleChecker::parse_words(Line &line, Settings &set)
 		if(set.get_count_word(key_word))
 		{
 			auto it = set.find_key_word(key_word);
-			std::cout << "В титульном листе найдено: " << it->first << std::endl;
+//			std::cout << "В титульном листе найдено: " << it->first << std::endl;
+			checker.add_title_message("В титульном листе найдено: " + it->first);
 			it->second++;
 			if(it->second > 1)
 			{
-				std::cout << it->first << " встречается больше одного раза в титульном листе" << std::endl;
+//				std::cout << it->first << " встречается больше одного раза в титульном листе" << std::endl;
+				checker.add_title_message(it->first + " встречается больше одного раза в титульном листе");
 			}
 		}
 	}

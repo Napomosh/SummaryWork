@@ -49,23 +49,23 @@ void PicturesChecker::count_picture_caption(ElementReader& page_reader)
 			if (std::stoi(result_str.substr(6, result_str.find('-', 6))) == prev_pict_number + 1)
 			{
 				capture_image++;
-				std::cout << "Картинки идут подряд" << std::endl;
+//				std::cout << "Картинки идут подряд" << std::endl;
 				prev_pict_number++;
 			}
 			else
 			{
-				std::cout << "Картинки идут не подряд" << std::endl;
+//				std::cout << "Картинки идут не подряд" << std::endl;
 			}
 		}
 		catch  (std::exception& e)
 		{
-			std::cout << "Некорректное имя рисунков" << std::endl;
+//			std::cout << "Некорректное имя рисунков" << std::endl;
 		}
 	}
 }
 
 bool PicturesChecker::check() const
 {
-	std::cout << "Результат сверки картинок: " << (images == capture_image) << "          " << images << "          " << capture_image << std::endl;
+//	std::cout << "Результат сверки картинок: " << (images == capture_image) << "          " << images << "          " << capture_image << std::endl;
 	return images == capture_image;
 }

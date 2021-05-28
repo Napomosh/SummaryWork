@@ -53,11 +53,13 @@ void TableOfContentChecker::parse_headers(pdftron::PDF::Line line, pdftron::PDF:
 		if(cur_header->second == 0)
 		{
 			cur_header->second++;
-			std::cout << "Найден заголовок в оглавлении: " << cur_header->first << std::endl;
+//			std::cout << "Найден заголовок в оглавлении: " << cur_header->first << std::endl;
+			checker.add_tableofcontent_result("Найден заголовок в оглавлении: " + cur_header->first);
 		}
 		else
 		{
-			std::cout << "Заголовок в оглавлении встречается несколько раз: " << cur_header->first << std::endl;
+//			std::cout << "Заголовок в оглавлении встречается несколько раз: " << cur_header->first << std::endl;
+			checker.add_tableofcontent_result("Заголовок в оглавлении встречается несколько раз: " + cur_header->first);
 		}
 	}
 }

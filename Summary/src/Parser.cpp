@@ -6,15 +6,19 @@
 #include "TableOfContentChecker.h"
 #include "PicturesChecker.h"
 #include "TitleChecker.h"
+#include "FilesChecker.h"
 
 #include <iostream>
 #include <string>
+#include <filesystem>
 
 #include <pdftron/PDF/PDFDoc.h>
 #include <pdftron/PDF/TextExtractor.h>
 
 using namespace pdftron;
 using namespace PDF;
+
+//namespace fs = std::filesystem;
 
 Parser::Parser(const std::string& input_path, const std::string& rule_path) : set(Settings(rule_path)), tests(0)
 {
@@ -76,8 +80,11 @@ int Parser::parse()
 	{
 		pict_checker.check();
 	}
+
 	auto result = get_checker_info();
-	
+//	result.print_results();
+	checker.write_result_in_file("../../report_check_result.txt");
+
 	return SUCCESS;
 }
 
