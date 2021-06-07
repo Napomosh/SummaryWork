@@ -36,6 +36,9 @@ void Settings::init_test_rule()
 }
 void Settings::init_additionals()
 {
+	additional_options.compare_headers_source = json_rules["Дополнительные опции"]["Сверка соответствия заголовочных и исходных файлов"];
+	additional_options.lines_in_fun = json_rules["Дополнительные опции"]["Количество строк в функции"];
+	additional_options.fun_in_file = json_rules["Дополнительные опции"]["Количество функций в файле"];
 	additional_options.pictures_check = json_rules["Дополнительные опции"]["Подписи к картинкам"];
 	additional_options.table_of_contents = json_rules["Дополнительные опции"]["Оглавление"];
 	std::map<std::string, int> headers1 = json_rules["Заголовки"];

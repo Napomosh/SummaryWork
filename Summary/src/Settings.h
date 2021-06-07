@@ -22,6 +22,9 @@ public:
 	{
 		bool table_of_contents { false };
 		bool pictures_check { false };
+		bool compare_headers_source { false };
+		int lines_in_fun { 0 };
+		int fun_in_file { 0 };
 	} additional_options;
 
 

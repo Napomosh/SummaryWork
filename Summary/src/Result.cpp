@@ -93,6 +93,10 @@ void Result::add_title_message(const std::string &msg)
 {
 	title_list.push_back(msg);
 }
+void Result::add_files_message(const std::string &msg)
+{
+	files_list.push_back(msg);
+}
 
 void Result::print_title_result()
 {
@@ -112,6 +116,7 @@ void Result::write_result_in_file(const std::string& file)
 		write_style_in_file(file_stream);
 		write_tableofcontent_in_file(file_stream);
 		write_title_in_file(file_stream);
+		write_files_in_file(file_stream);
 	}
 	file_stream.close();
 }
@@ -147,3 +152,13 @@ void Result::write_title_in_file(std::ofstream &out)
 		out << item << "\n";
 	}
 }
+
+void Result::write_files_in_file(std::ofstream &out)
+{
+	for(auto& item : files_list)
+	{
+		out << item << "\n";
+	}
+}
+
+

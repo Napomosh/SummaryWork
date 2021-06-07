@@ -17,17 +17,21 @@ int main(int argc, char* argv[])
 	cmd.add(rules_name);
 	ValueArg<std::string> sources_name("s", "source", "Name of source code file", true, "homer", "string");
 	cmd.add(sources_name);
+	ValueArg<std::string> dir_name("d", "dir", "Name of dir with src files", true, "homer", "string");
+	cmd.add(dir_name);
 
 	cmd.parse(argc, argv);
 
 	std::string input_path = lab_name.getValue();
 	std::string rule_path = rules_name.getValue();
 	std::string sources_path = sources_name.getValue();
-	std::string cppcheck_command = "clang-format --dry-run " + sources_path + " >result.txt 2>&1";
+	std::string dir_path = dir_name.getValue();
+//	std::string cppcheck_command = "clang-format --dry-run " + dir_path + " >result.txt 2>&1";
+	std::string cppcheck_command = "./scripts/clang-format-all " + dir_path + " >result.txt 2>&1";
 	system(cppcheck_command.c_str());
 
 	Parser parser;
-	parser = Parser(input_path, rule_path);
+	parser = Parser(input_path, rule_path, dir_path);
 	PDFNet::Initialize();
 	parser.parse();
 	PDFNet::Terminate();

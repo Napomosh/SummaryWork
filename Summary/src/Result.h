@@ -14,6 +14,7 @@ public:
 	void add_tableofcontent_result(const std::string& msg);
 	void add_test_message(const std::string& msg);
 	void add_title_message(const std::string& msg);
+	void add_files_message(const std::string& msg);
 
 	void print_head_result();
 	void print_style_result();
@@ -36,9 +37,11 @@ private:
 	std::list<std::string> tableofcontent_list;
 	std::list<std::string> test_message_list;
 	std::list<std::string> title_list;
+	std::list<std::string> files_list;
 	int tests;
 
 	void write_headers_in_file(std::ofstream& out);
+	void write_files_in_file(std::ofstream& out);
 	void write_style_in_file(std::ofstream& out);
 	void write_tableofcontent_in_file(std::ofstream& out);
 	void write_title_in_file(std::ofstream& out);

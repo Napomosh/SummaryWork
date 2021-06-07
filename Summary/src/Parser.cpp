@@ -20,13 +20,15 @@ using namespace PDF;
 
 //namespace fs = std::filesystem;
 
-Parser::Parser(const std::string& input_path, const std::string& rule_path) : set(Settings(rule_path)), tests(0)
+Parser::Parser(const std::string& input_path, const std::string& rule_path, const std::string& dir_path) : set(Settings(rule_path)), tests(0)
 {
+	this->dir_path = dir_path;
 	lab_name = input_path;
 }
 Parser::Parser() : set(Settings()), tests(0)
 {
 	lab_name = "none";
+	dir_path = "none";
 }
 
 int Parser::parse()
@@ -44,6 +46,7 @@ int Parser::parse()
 	TableOfContentChecker table_of_content_checker;
 	PicturesChecker pict_checker;
 	TitleChecker title_checker;
+	FilesChecker file_checker(dir_path);
 
 	for (int i = 1; (page = doc.GetPage(i)) != 0; i++)
 	{
@@ -55,6 +58,7 @@ int Parser::parse()
 		if (i == 1)
 		{
 			title_checker.check_rule(page, set, checker);
+			file_checker.check_rule(page, set, checker);
 			continue;
 		}
 
@@ -82,6 +86,7 @@ int Parser::parse()
 	}
 
 	auto result = get_checker_info();
+
 //	result.print_results();
 	checker.write_result_in_file("../../report_check_result.txt");
 

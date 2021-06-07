@@ -9,7 +9,7 @@
 class Parser
 {
 public:
-	Parser(const std::string& input_path, const std::string& rule_path);
+	Parser(const std::string& input_path, const std::string& rule_path,  const std::string& dir_path);
 	Parser();
 
 	int parse();
@@ -25,6 +25,7 @@ public:
 private:
 	int tests;
 	std::string lab_name;
+	std::string dir_path;
 	Settings set;
 	Result checker;
 };
