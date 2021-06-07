@@ -80,6 +80,7 @@ int Parser::parse()
 		}
 	}
 	header_checker.get_result(set, checker);
+	test_checker.check_result(set, checker);
 	if (set.additional_options.pictures_check)
 	{
 		pict_checker.check();

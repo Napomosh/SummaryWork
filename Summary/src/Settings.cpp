@@ -41,6 +41,7 @@ void Settings::init_additionals()
 	additional_options.fun_in_file = json_rules["Дополнительные опции"]["Количество функций в файле"];
 	additional_options.pictures_check = json_rules["Дополнительные опции"]["Подписи к картинкам"];
 	additional_options.table_of_contents = json_rules["Дополнительные опции"]["Оглавление"];
+	additional_options.test_compare = json_rules["Дополнительные опции"]["Максимальный процент сходства тестов"];
 	std::map<std::string, int> headers1 = json_rules["Заголовки"];
 	table_of_content = headers1;
 }

@@ -26,7 +26,7 @@ private:
 	std::vector<std::list<std::string>> test_tokens;
 	void compare_tests(pdftron::PDF::TextExtractor::Line& line, Result& checker);
 
-	void compare_tokens(Result& checker);
+	void compare_tokens(Result& checker, Settings& set);
 };
 
 #endif //SUMMARY_WORK_TESTCHECKER_H

@@ -25,6 +25,7 @@ public:
 		bool compare_headers_source { false };
 		int lines_in_fun { 0 };
 		int fun_in_file { 0 };
+		int test_compare { 0 };
 	} additional_options;
 
 

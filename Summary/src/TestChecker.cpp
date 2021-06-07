@@ -72,7 +72,7 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 			if (test == "Тест")
 			{
 				is_test = true;
-				test_num++; 
+				test_num++;
 				word = word.GetNextWord();
 				if(!word.IsValid())
 				{
@@ -83,7 +83,7 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 				tmp.Assign(word.GetString(), sz);
 				if(tmp == std::to_string(test_num))
 				{
-//					std::cout << "Тест номер: " << tmp << " найден." << std::endl;
+					std::cout << "Тест номер: " << tmp << " найден." << std::endl;
 					checker.add_test_message("Тест номер: " + tmp.ConvertToAscii() + " найден.");
 				}
 				cur_test++;
@@ -94,12 +94,12 @@ void TestChecker::check_rule(Page& page, Settings& set, Result& checker)
 				compare_tests(line, checker);
 				break;
 			}
+
 		}
 	}
-	check_result(set, checker);
 	if(!test_tokens.empty())
 	{
-		compare_tokens(checker);
+		compare_tokens(checker, set);
 	}
 }
 
@@ -128,7 +128,7 @@ void TestChecker::compare_tests(TextExtractor::Line& line, Result& checker)
 	}
 }
 
-void TestChecker::compare_tokens(Result& checker)
+void TestChecker::compare_tokens(Result& checker, Settings& set)
 {
 	//  Выбираем тест, который будем проверять сейчас
 	for(int test = 0; test < test_num; test++)
@@ -159,9 +159,16 @@ void TestChecker::compare_tokens(Result& checker)
 				}
 			}
 //			std::cout << test << "         " << compare_with_test << "            " << repeats << "             " << (repeats / (float)test_tokens[test].size() * 100) << "%" << std::endl;
-			checker.add_test_message(std::to_string(test) + "         " + std::to_string(compare_with_test) +
-									"            " + std::to_string(repeats) + "             " +
-									std::to_string(repeats / (float)test_tokens[test].size() * 100) + "%" );
+//			checker.add_test_message(std::to_string(test) + "         " + std::to_string(compare_with_test) +
+//									"            " + std::to_string(repeats) + "             " +
+//									std::to_string(repeats / (float)test_tokens[test].size() * 100) + "%" );
+			if((float)test_tokens[test].size() * 100 > set.additional_options.test_compare
+				&& std::to_string(test) != std::to_string(compare_with_test))
+			{
+				checker.add_test_message("Тест номер " + std::to_string(test) + " слишком сильно похож на тест номер  "
+				+ std::to_string(compare_with_test) + ". Они имеют " + std::to_string(repeats) + " повторов, что составляет " +
+									std::to_string(repeats / (float)test_tokens[test].size() * 100) + "% при ограничении в " );
+			}
 			repeats = 0;
 		}
 	}
@@ -171,6 +178,7 @@ void TestChecker::check_result(Settings& set, Result& checker)
 {
 	if(test_num < set.get_test_count())
 	{
+
 //		std::cout << "Не найдено " << set.get_test_count() - test_num << " тестов." << std::endl;
 		checker.add_test_message("Не найдено " + std::to_string(set.get_test_count() - test_num) + " тестов.");
 	}
@@ -182,6 +190,7 @@ void TestChecker::check_result(Settings& set, Result& checker)
 	}
 	else
 	{
+		checker.add_test_message("Все тесты найдены.");
 		set.set_is_test_found(false);
 	}
 }

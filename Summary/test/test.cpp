@@ -42,7 +42,7 @@ TEST_CASE("Check kurs.pdf")
 }
 
 TEST_CASE("Check lab18.pdf") {
-	std::string input_path { "../../resources/lab18.pdf" };
+	std::string input_path { "../../resources/lab7.pdf" };
 	Parser parser =  Parser(input_path, "../../test/json_file.json", "../../src");
 	CHECK_EQ(parser.parse(), parser.SUCCESS);
 	PDFNet::Terminate();
