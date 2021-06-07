@@ -1,0 +1,14 @@
+controller/AddRuleFile.class
+controller/DownloadServlet.class
+controller/AddSourcePath.class
+controller/DeleteServlet.class
+controller/LogoutServlet.class
+controller/UploadReportServlet.class
+controller/GenerateLinksServlet.class
+controller/UploadSourcesServlet.class
+auxiliary/WorkWithUsers.class
+controller/Checker.class
+auth/StartServlet.class
+controller/MainServlet.class
+auth/RegisterServlet.class
+auxiliary/WorkWithDirectory.class

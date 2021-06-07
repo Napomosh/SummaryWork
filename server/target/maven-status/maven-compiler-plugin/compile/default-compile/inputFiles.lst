@@ -1,0 +1,14 @@
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/AddSourcePath.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/auxiliary/WorkWithUsers.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/LogoutServlet.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/auth/StartServlet.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/DownloadServlet.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/UploadSourcesServlet.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/Checker.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/auth/RegisterServlet.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/UploadReportServlet.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/AddRuleFile.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/MainServlet.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/DeleteServlet.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/controller/GenerateLinksServlet.java
+/home/alex/CLionProjects/SummaryWork/server/src/main/java/auxiliary/WorkWithDirectory.java

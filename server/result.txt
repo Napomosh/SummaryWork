@@ -1,0 +1,471 @@
+./StyleChecker.cpp:11:35: warning: code should be clang-formatted [-Wclang-format-violations]
+void StyleChecker::check_rule(Page& page, Settings& set, Result& checker)
+                                  ^
+./StyleChecker.cpp:11:36: warning: code should be clang-formatted [-Wclang-format-violations]
+void StyleChecker::check_rule(Page& page, Settings& set, Result& checker)
+                                   ^
+./StyleChecker.cpp:11:51: warning: code should be clang-formatted [-Wclang-format-violations]
+void StyleChecker::check_rule(Page& page, Settings& set, Result& checker)
+                                                  ^
+./StyleChecker.cpp:11:52: warning: code should be clang-formatted [-Wclang-format-violations]
+void StyleChecker::check_rule(Page& page, Settings& set, Result& checker)
+                                                   ^
+./StyleChecker.cpp:11:64: warning: code should be clang-formatted [-Wclang-format-violations]
+void StyleChecker::check_rule(Page& page, Settings& set, Result& checker)
+                                                               ^
+./StyleChecker.cpp:11:65: warning: code should be clang-formatted [-Wclang-format-violations]
+void StyleChecker::check_rule(Page& page, Settings& set, Result& checker)
+                                                                ^
+./StyleChecker.cpp:11:74: warning: code should be clang-formatted [-Wclang-format-violations]
+void StyleChecker::check_rule(Page& page, Settings& set, Result& checker)
+                                                                         ^
+./StyleChecker.cpp:12:2: warning: code should be clang-formatted [-Wclang-format-violations]
+{
+ ^
+./StyleChecker.cpp:13:20: warning: code should be clang-formatted [-Wclang-format-violations]
+        TextExtractor txt;
+                          ^
+./StyleChecker.cpp:14:18: warning: code should be clang-formatted [-Wclang-format-violations]
+        txt.Begin(page);
+                        ^
+./StyleChecker.cpp:15:27: warning: code should be clang-formatted [-Wclang-format-violations]
+        TextExtractor::Line line;
+                                 ^
+./StyleChecker.cpp:16:34: warning: code should be clang-formatted [-Wclang-format-violations]
+        TextExtractor::Style line_style;
+                                        ^
+./StyleChecker.cpp:17:76: warning: code should be clang-formatted [-Wclang-format-violations]
+        for (line = txt.GetFirstLine(); line.IsValid(); line = line.GetNextLine())
+                                                                                  ^
+./StyleChecker.cpp:18:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        {
+         ^
+./StyleChecker.cpp:19:32: warning: code should be clang-formatted [-Wclang-format-violations]
+                line_style = line.GetStyle();
+                                             ^
+./StyleChecker.cpp:20:31: warning: code should be clang-formatted [-Wclang-format-violations]
+                if (line.GetNumWords() == 0)
+                                            ^
+./StyleChecker.cpp:21:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                {
+                 ^
+./StyleChecker.cpp:22:13: warning: code should be clang-formatted [-Wclang-format-violations]
+                        continue;
+                                 ^
+./StyleChecker.cpp:23:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                }
+                 ^
+./StyleChecker.cpp:25:10: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if(line_style.GetFontName().ConvertToUtf8() != set.font_setting.name_font)
+                       ^
+./StyleChecker.cpp:25:54: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if(line_style.GetFontName().ConvertToUtf8() != set.font_setting.name_font)
+                                                                   ^
+./StyleChecker.cpp:25:82: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if(line_style.GetFontName().ConvertToUtf8() != set.font_setting.name_font)
+                                                                                               ^
+./StyleChecker.cpp:26:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                {
+                 ^
+./StyleChecker.cpp:27:49: warning: code should be clang-formatted [-Wclang-format-violations]
+//                      std::cout << "Строка номер: " << line.GetCurrentNum() << " Шрифт отличается от заданного" << std::endl;
+./StyleChecker.cpp:27:146: warning: code should be clang-formatted [-Wclang-format-violations]
+//                      std::cout << "Строка номер: " << line.GetCurrentNum() << " Шрифт отличается от заданного" << std::endl;
+./StyleChecker.cpp:28:30: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_style_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Шрифт отличается от заданного");
+./StyleChecker.cpp:28:98: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_style_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Шрифт отличается от заданного");
+./StyleChecker.cpp:28:159: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_style_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Шрифт отличается от заданного");
+./StyleChecker.cpp:29:13: warning: code should be clang-formatted [-Wclang-format-violations]
+                        continue;
+                                 ^
+./StyleChecker.cpp:30:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                }
+                 ^
+./StyleChecker.cpp:31:10: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if((line_style.GetFontSize() > (set.font_setting.value_font + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font - 0.5)) &&
+                       ^
+./StyleChecker.cpp:31:38: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if((line_style.GetFontSize() > (set.font_setting.value_font + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font - 0.5)) &&
+                                                   ^
+./StyleChecker.cpp:31:77: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if((line_style.GetFontSize() > (set.font_setting.value_font + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font - 0.5)) &&
+                                                                                          ^
+./StyleChecker.cpp:31:104: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if((line_style.GetFontSize() > (set.font_setting.value_font + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font - 0.5)) &&
+                                                                                                                     ^
+./StyleChecker.cpp:31:144: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if((line_style.GetFontSize() > (set.font_setting.value_font + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font - 0.5)) &&
+                                                                                                                                                             ^
+./StyleChecker.cpp:32:32: warning: code should be clang-formatted [-Wclang-format-violations]
+                                (line_style.GetFontSize() > (set.font_setting.value_font_header + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font_header - 0.5)))
+                                                           ^
+./StyleChecker.cpp:32:78: warning: code should be clang-formatted [-Wclang-format-violations]
+                                (line_style.GetFontSize() > (set.font_setting.value_font_header + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font_header - 0.5)))
+                                                                                                         ^
+./StyleChecker.cpp:32:105: warning: code should be clang-formatted [-Wclang-format-violations]
+                                (line_style.GetFontSize() > (set.font_setting.value_font_header + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font_header - 0.5)))
+                                                                                                                                    ^
+./StyleChecker.cpp:32:150: warning: code should be clang-formatted [-Wclang-format-violations]
+                                (line_style.GetFontSize() > (set.font_setting.value_font_header + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font_header - 0.5)))
+                                                                                                                                                                                 ^
+./StyleChecker.cpp:33:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                {
+                 ^
+./StyleChecker.cpp:34:49: warning: code should be clang-formatted [-Wclang-format-violations]
+//                      std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта отличается от заданного" << std::endl;
+./StyleChecker.cpp:34:150: warning: code should be clang-formatted [-Wclang-format-violations]
+//                      std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта отличается от заданного" << std::endl;
+./StyleChecker.cpp:34:161: warning: code should be clang-formatted [-Wclang-format-violations]
+//                      std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта отличается от заданного" << std::endl;
+./StyleChecker.cpp:35:30: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_style_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Размер шрифта отличается от заданного");
+./StyleChecker.cpp:35:98: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_style_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Размер шрифта отличается от заданного");
+./StyleChecker.cpp:35:174: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_style_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Размер шрифта отличается от заданного");
+./StyleChecker.cpp:36:13: warning: code should be clang-formatted [-Wclang-format-violations]
+                        continue;
+                                 ^
+./StyleChecker.cpp:37:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                }
+                 ^
+./FilesChecker.cpp:3:1: warning: code should be clang-formatted [-Wclang-format-violations]
+#include <fstream>
+^
+./FilesChecker.cpp:7:45: warning: code should be clang-formatted [-Wclang-format-violations]
+FilesChecker::FilesChecker(const std::string& dir_path)
+                                            ^
+./FilesChecker.cpp:7:46: warning: code should be clang-formatted [-Wclang-format-violations]
+FilesChecker::FilesChecker(const std::string& dir_path)
+                                             ^
+./FilesChecker.cpp:7:56: warning: code should be clang-formatted [-Wclang-format-violations]
+FilesChecker::FilesChecker(const std::string& dir_path)
+                                                       ^
+./FilesChecker.cpp:8:2: warning: code should be clang-formatted [-Wclang-format-violations]
+{
+ ^
+./FilesChecker.cpp:12:71: warning: code should be clang-formatted [-Wclang-format-violations]
+void FilesChecker::check_rule(pdftron::PDF::Page &page, Settings &set, Result &checker)
+                                                                      ^
+./FilesChecker.cpp:12:88: warning: code should be clang-formatted [-Wclang-format-violations]
+void FilesChecker::check_rule(pdftron::PDF::Page &page, Settings &set, Result &checker)
+                                                                                       ^
+./FilesChecker.cpp:13:2: warning: code should be clang-formatted [-Wclang-format-violations]
+{
+ ^
+./FilesChecker.cpp:14:17: warning: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& item : std::filesystem::directory_iterator(dir_path))
+                       ^
+./FilesChecker.cpp:14:18: warning: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& item : std::filesystem::directory_iterator(dir_path))
+                        ^
+./FilesChecker.cpp:14:72: warning: code should be clang-formatted [-Wclang-format-violations]
+        for (const auto& item : std::filesystem::directory_iterator(dir_path))
+                                                                              ^
+./FilesChecker.cpp:15:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        {
+         ^
+./FilesChecker.cpp:16:15: warning: code should be clang-formatted [-Wclang-format-violations]
+                files_num++;
+                            ^
+./FilesChecker.cpp:17:43: warning: code should be clang-formatted [-Wclang-format-violations]
+                std::string file = item.path().string();
+                                                        ^
+./FilesChecker.cpp:18:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                if(file.substr(file.size() - 4, 4) == ".cpp")
+                  ^
+./FilesChecker.cpp:18:48: warning: code should be clang-formatted [-Wclang-format-violations]
+                if(file.substr(file.size() - 4, 4) == ".cpp")
+                                                             ^
+./FilesChecker.cpp:19:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                {
+                 ^
+./FilesChecker.cpp:20:19: warning: code should be clang-formatted [-Wclang-format-violations]
+                        sources_file++;
+                                       ^
+./FilesChecker.cpp:21:45: warning: code should be clang-formatted [-Wclang-format-violations]
+                        check_function_style(file, set, checker);
+                                                                 ^
+./FilesChecker.cpp:22:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                }
+                 ^
+./FilesChecker.cpp:23:10: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if(file.substr(file.size() - 2, 2) == ".h")
+                       ^
+./FilesChecker.cpp:23:51: warning: code should be clang-formatted [-Wclang-format-violations]
+                else if(file.substr(file.size() - 2, 2) == ".h")
+                                                                ^
+./FilesChecker.cpp:24:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                {
+                 ^
+./FilesChecker.cpp:25:16: warning: code should be clang-formatted [-Wclang-format-violations]
+                        head_file++;
+                                    ^
+./FilesChecker.cpp:26:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                }
+                 ^
+./FilesChecker.cpp:27:7: warning: code should be clang-formatted [-Wclang-format-violations]
+                else
+                    ^
+./FilesChecker.cpp:28:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                {
+                 ^
+./FilesChecker.cpp:29:114: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_files_message("В директории с работой присутствуют файлы не относящиеся к исходному коду: " + file);
+./FilesChecker.cpp:29:172: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_files_message("В директории с работой присутствуют файлы не относящиеся к исходному коду: " + file);
+./FilesChecker.cpp:29:179: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_files_message("В директории с работой присутствуют файлы не относящиеся к исходному коду: " + file);
+./FilesChecker.cpp:30:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                }
+                 ^
+./FilesChecker.cpp:31:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+./FilesChecker.cpp:32:4: warning: code should be clang-formatted [-Wclang-format-violations]
+        if(set.additional_options.compare_headers_source)
+          ^
+./FilesChecker.cpp:32:51: warning: code should be clang-formatted [-Wclang-format-violations]
+        if(set.additional_options.compare_headers_source)
+                                                         ^
+./FilesChecker.cpp:33:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        {
+         ^
+./FilesChecker.cpp:34:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                if(sources_file - 1 != head_file)
+                  ^
+./FilesChecker.cpp:34:36: warning: code should be clang-formatted [-Wclang-format-violations]
+                if(sources_file - 1 != head_file)
+                                                 ^
+./FilesChecker.cpp:35:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                {
+                 ^
+./FilesChecker.cpp:36:30: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_files_message("Несоответствие заголовочных файлов и файлов с исходным кодом");
+./FilesChecker.cpp:36:147: warning: code should be clang-formatted [-Wclang-format-violations]
+                        checker.add_files_message("Несоответствие заголовочных файлов и файлов с исходным кодом");
+./FilesChecker.cpp:37:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                }
+                 ^
+./FilesChecker.cpp:41:58: warning: code should be clang-formatted [-Wclang-format-violations]
+void FilesChecker::check_function_style(const std::string& file, Settings& set, Result &checker)
+                                                         ^
+./FilesChecker.cpp:41:59: warning: code should be clang-formatted [-Wclang-format-violations]
+void FilesChecker::check_function_style(const std::string& file, Settings& set, Result &checker)
+                                                          ^
+./FilesChecker.cpp:41:74: warning: code should be clang-formatted [-Wclang-format-violations]
+void FilesChecker::check_function_style(const std::string& file, Settings& set, Result &checker)
+                                                                         ^
+./FilesChecker.cpp:41:75: warning: code should be clang-formatted [-Wclang-format-violations]
+void FilesChecker::check_function_style(const std::string& file, Settings& set, Result &checker)
+                                                                          ^
+./FilesChecker.cpp:41:80: warning: code should be clang-formatted [-Wclang-format-violations]
+void FilesChecker::check_function_style(const std::string& file, Settings& set, Result &checker)
+                                                                               ^
+./FilesChecker.cpp:41:97: warning: code should be clang-formatted [-Wclang-format-violations]
+void FilesChecker::check_function_style(const std::string& file, Settings& set, Result &checker)
+                                                                                                ^
+./FilesChecker.cpp:42:2: warning: code should be clang-formatted [-Wclang-format-violations]
+{
+ ^
+./FilesChecker.cpp:43:24: warning: code should be clang-formatted [-Wclang-format-violations]
+        std::ifstream istream;
+                              ^
+./FilesChecker.cpp:44:21: warning: code should be clang-formatted [-Wclang-format-violations]
+        istream.open(file);
+                           ^
+./FilesChecker.cpp:45:18: warning: code should be clang-formatted [-Wclang-format-violations]
+        std::string str;
+                        ^
+./FilesChecker.cpp:47:4: warning: code should be clang-formatted [-Wclang-format-violations]
+        if(istream.is_open())
+          ^
+./FilesChecker.cpp:47:23: warning: code should be clang-formatted [-Wclang-format-violations]
+        if(istream.is_open())
+                             ^
+./FilesChecker.cpp:48:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        {
+         ^
+./FilesChecker.cpp:49:6: warning: code should be clang-formatted [-Wclang-format-violations]
+                for(istream >> str; !istream.eof(); str = istream.get())
+                   ^
+./FilesChecker.cpp:49:59: warning: code should be clang-formatted [-Wclang-format-violations]
+                for(istream >> str; !istream.eof(); str = istream.get())
+                                                                        ^
+./FilesChecker.cpp:50:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                {
+                 ^
+./FilesChecker.cpp:51:19: warning: code should be clang-formatted [-Wclang-format-violations]
+                        if (str == "{")
+                                       ^
+./FilesChecker.cpp:52:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        {
+                         ^
+./FilesChecker.cpp:53:21: warning: code should be clang-formatted [-Wclang-format-violations]
+                                open_brackets++;
+                                                ^
+./FilesChecker.cpp:54:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        }
+                         ^
+./FilesChecker.cpp:55:24: warning: code should be clang-formatted [-Wclang-format-violations]
+                        else if (str == "}")
+                                            ^
+./FilesChecker.cpp:56:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        {
+                         ^
+./FilesChecker.cpp:57:22: warning: code should be clang-formatted [-Wclang-format-violations]
+                                close_brackets++;
+                                                 ^
+./FilesChecker.cpp:58:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        }
+                         ^
+./FilesChecker.cpp:59:24: warning: code should be clang-formatted [-Wclang-format-violations]
+                        else if (str == ";")
+                                            ^
+./FilesChecker.cpp:60:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        {
+                         ^
+./FilesChecker.cpp:61:19: warning: code should be clang-formatted [-Wclang-format-violations]
+                                num_command++;
+                                              ^
+./FilesChecker.cpp:62:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        }
+                         ^
+./FilesChecker.cpp:63:25: warning: code should be clang-formatted [-Wclang-format-violations]
+                        else if (str == "\n")
+                                             ^
+./FilesChecker.cpp:64:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        {
+                         ^
+./FilesChecker.cpp:65:17: warning: code should be clang-formatted [-Wclang-format-violations]
+                                num_lines++;
+                                            ^
+./FilesChecker.cpp:66:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        }
+                         ^
+./FilesChecker.cpp:67:63: warning: code should be clang-formatted [-Wclang-format-violations]
+                        if (open_brackets == close_brackets && open_brackets > 0 && close_brackets > 0)
+                                                                                   ^
+./FilesChecker.cpp:67:83: warning: code should be clang-formatted [-Wclang-format-violations]
+                        if (open_brackets == close_brackets && open_brackets > 0 && close_brackets > 0)
+                                                                                                       ^
+./FilesChecker.cpp:68:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        {
+                         ^
+./FilesChecker.cpp:69:23: warning: code should be clang-formatted [-Wclang-format-violations]
+                                open_brackets = 0;
+                                                  ^
+./FilesChecker.cpp:70:24: warning: code should be clang-formatted [-Wclang-format-violations]
+                                close_brackets = 0;
+                                                   ^
+./FilesChecker.cpp:71:21: warning: code should be clang-formatted [-Wclang-format-violations]
+                                functions_num++;
+                                                ^
+./FilesChecker.cpp:72:7: warning: code should be clang-formatted [-Wclang-format-violations]
+                                if(set.additional_options.lines_in_fun > 0 && num_lines != set.additional_options.lines_in_fun)
+                                  ^
+./FilesChecker.cpp:72:50: warning: code should be clang-formatted [-Wclang-format-violations]
+                                if(set.additional_options.lines_in_fun > 0 && num_lines != set.additional_options.lines_in_fun)
+                                                                             ^
+./FilesChecker.cpp:72:100: warning: code should be clang-formatted [-Wclang-format-violations]
+                                if(set.additional_options.lines_in_fun > 0 && num_lines != set.additional_options.lines_in_fun)
+                                                                                                                               ^
+./FilesChecker.cpp:73:6: warning: code should be clang-formatted [-Wclang-format-violations]
+                                {
+                                 ^
+./FilesChecker.cpp:74:26: warning: code should be clang-formatted [-Wclang-format-violations]
+                                        num_incorrect_fun++;
+                                                            ^
+./FilesChecker.cpp:75:6: warning: code should be clang-formatted [-Wclang-format-violations]
+                                }
+                                 ^
+./FilesChecker.cpp:76:19: warning: code should be clang-formatted [-Wclang-format-violations]
+                                num_lines = 0;
+                                              ^
+./FilesChecker.cpp:77:5: warning: code should be clang-formatted [-Wclang-format-violations]
+                        }
+                         ^
+./FilesChecker.cpp:79:4: warning: code should be clang-formatted [-Wclang-format-violations]
+                }
+                 ^
+./FilesChecker.cpp:80:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+./FilesChecker.cpp:81:64: warning: code should be clang-formatted [-Wclang-format-violations]
+//      std::cout << file << "      " << functions_num << std::endl;
+                                                                    ^
+./FilesChecker.cpp:82:18: warning: code should be clang-formatted [-Wclang-format-violations]
+        istream.close();
+                        ^
+./FilesChecker.cpp:83:4: warning: code should be clang-formatted [-Wclang-format-violations]
+        if(set.additional_options.fun_in_file != functions_num && set.additional_options.fun_in_file > 0)
+          ^
+./FilesChecker.cpp:83:59: warning: code should be clang-formatted [-Wclang-format-violations]
+        if(set.additional_options.fun_in_file != functions_num && set.additional_options.fun_in_file > 0)
+                                                                 ^
+./FilesChecker.cpp:83:99: warning: code should be clang-formatted [-Wclang-format-violations]
+        if(set.additional_options.fun_in_file != functions_num && set.additional_options.fun_in_file > 0)
+                                                                                                         ^
+./FilesChecker.cpp:84:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        {
+         ^
+./FilesChecker.cpp:85:54: warning: code should be clang-formatted [-Wclang-format-violations]
+                checker.add_files_message("В файле " + file + " неверное количество функций");
+./FilesChecker.cpp:85:112: warning: code should be clang-formatted [-Wclang-format-violations]
+                checker.add_files_message("В файле " + file + " неверное количество функций");
+./FilesChecker.cpp:86:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+./FilesChecker.cpp:87:4: warning: code should be clang-formatted [-Wclang-format-violations]
+        if(num_incorrect_fun > 0)
+          ^
+./FilesChecker.cpp:87:27: warning: code should be clang-formatted [-Wclang-format-violations]
+        if(num_incorrect_fun > 0)
+                                 ^
+./FilesChecker.cpp:88:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        {
+         ^
+./FilesChecker.cpp:89:69: warning: code should be clang-formatted [-Wclang-format-violations]
+                checker.add_files_message("В файле " + file + " есть " + std::to_string(num_incorrect_fun) + " функции с неверным количесвто строк");
+./FilesChecker.cpp:89:105: warning: code should be clang-formatted [-Wclang-format-violations]
+                checker.add_files_message("В файле " + file + " есть " + std::to_string(num_incorrect_fun) + " функции с неверным количесвто строк");
+./FilesChecker.cpp:89:177: warning: code should be clang-formatted [-Wclang-format-violations]
+                checker.add_files_message("В файле " + file + " есть " + std::to_string(num_incorrect_fun) + " функции с неверным количесвто строк");
+./FilesChecker.cpp:90:3: warning: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+./FilesChecker.cpp:91:20: warning: code should be clang-formatted [-Wclang-format-violations]
+        functions_num = 0;
+                          ^
+./FilesChecker.cpp:92:24: warning: code should be clang-formatted [-Wclang-format-violations]
+        num_incorrect_fun = 0;
+                              ^
+./FilesChecker.cpp:93:16: warning: code should be clang-formatted [-Wclang-format-violations]
+        num_lines = 0;
+                      ^
+./FilesChecker.cpp:94:20: warning: code should be clang-formatted [-Wclang-format-violations]
+        open_brackets = 0;
+                          ^
+./FilesChecker.cpp:98:42: warning: code should be clang-formatted [-Wclang-format-violations]
+int FilesChecker::get_num_command() const
+                                         ^
+./FilesChecker.cpp:99:2: warning: code should be clang-formatted [-Wclang-format-violations]
+{
+ ^
+./FilesChecker.cpp:100:21: warning: code should be clang-formatted [-Wclang-format-violations]
+        return num_command;
+                           ^
+./FilesChecker.cpp:103:44: warning: code should be clang-formatted [-Wclang-format-violations]
+int FilesChecker::get_functions_num() const
+                                           ^
+./FilesChecker.cpp:104:2: warning: code should be clang-formatted [-Wclang-format-violations]
+{
+ ^
+./FilesChecker.cpp:105:23: warning: code should be clang-formatted [-Wclang-format-violations]
+        return functions_num;
+                             ^
+./FilesChecker.cpp:106:2: warning: code should be clang-formatted [-Wclang-format-violations]
+}
+ ^
