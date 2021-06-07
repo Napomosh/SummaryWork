@@ -21,7 +21,7 @@ void HeadChecker::check_headers(const std::string& head, TextExtractor::Line& li
 	if (cur_header->second == 0)
 	{
 		cur_header->second++;
-//		std::cout << "Найден заголовок: " << cur_header->first << std::endl;
+		std::cout << "Найден заголовок: " << cur_header->first << std::endl;
 		checker.add_head_message("Найден заголовок: " + cur_header->first );
 		
 		if (cur_header->first.substr(0, 20) == "Тестирован")
@@ -31,18 +31,18 @@ void HeadChecker::check_headers(const std::string& head, TextExtractor::Line& li
 	}
 	else
 	{
-//		std::cout << "Заголовок встречается несколько раз" << std::endl;
+		std::cout << "Заголовок встречается несколько раз" << std::endl;
 		checker.add_head_message("Заголовок встречается несколько раз");
 	}
 
 	if(line_style.GetFontName().ConvertToUtf8() != set.font_setting.name_font)
 	{
-//		std::cout << "Строка номер: " << line.GetCurrentNum() << " Шрифт заголовка отличается от заданного" << std::endl;
+		std::cout << "Строка номер: " << line.GetCurrentNum() << " Шрифт заголовка отличается от заданного" << std::endl;
 		checker.add_head_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Шрифт заголовка отличается от заданного");
 	}
 	else if(line_style.GetFontSize() > (set.font_setting.value_font_header + 0.5) || line_style.GetFontSize() < (set.font_setting.value_font_header - 0.5))
 	{
-//		std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта заголовка отличается от заданного" << std::endl;
+		std::cout << "Строка номер: " << line.GetCurrentNum() << " Размер шрифта заголовка отличается от заданного" << std::endl;
 		checker.add_head_message("Строка номер: " + std::to_string(line.GetCurrentNum()) + " Размер шрифта заголовка отличается от заданного");
 	}
 }
@@ -73,14 +73,14 @@ void HeadChecker::parse_headers(TextExtractor::Line& line, TextExtractor::Style&
 		if(is_prev_head)
 		{
 			checker.add_head_message("Два заголовка идут подряд. Строка номер: " + std::to_string(line.GetCurrentNum()));
-//			std::cout << "Два заголовка идут подряд. Строка номер: " << line.GetCurrentNum() << std::endl;
+			std::cout << "Два заголовка идут подряд. Строка номер: " << line.GetCurrentNum() << std::endl;
 		}
 		is_prev_head = true;
 		check_headers(head, line, set, checker);
 	}
 	else
 	{
-//		std::cout << "Неизвестный заголовок или текст написан шрифтом заголовка. Строка номер: " << line.GetCurrentNum() << std::endl;
+		std::cout << "Неизвестный заголовок или текст написан шрифтом заголовка. Строка номер: " << line.GetCurrentNum() << std::endl;
 		checker.add_head_message("Неизвестный заголовок или текст написан шрифтом заголовка. Строка номер: " + std::to_string(line.GetCurrentNum()));
 	}
 }
@@ -116,7 +116,7 @@ void HeadChecker::get_result(Settings& set, Result& checker)
 	{
 		if (it->second == 0)
 		{
-//			std::cout << "Не найден заголовок: " << it->first << std::endl;
+			std::cout << "Не найден заголовок: " << it->first << std::endl;
 			checker.add_head_message("Не найден заголовок: " + it->first);
 		}
 	}

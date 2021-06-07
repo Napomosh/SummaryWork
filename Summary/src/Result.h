@@ -17,6 +17,7 @@ public:
 	void add_files_message(const std::string& msg);
 
 	void print_head_result();
+//	void print_head_result();
 	void print_style_result();
 	void print_tableofcontent_result();
 	void print_title_result();

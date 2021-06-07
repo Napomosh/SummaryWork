@@ -158,11 +158,7 @@ void TestChecker::compare_tokens(Result& checker, Settings& set)
 					repeats++;
 				}
 			}
-//			std::cout << test << "         " << compare_with_test << "            " << repeats << "             " << (repeats / (float)test_tokens[test].size() * 100) << "%" << std::endl;
-//			checker.add_test_message(std::to_string(test) + "         " + std::to_string(compare_with_test) +
-//									"            " + std::to_string(repeats) + "             " +
-//									std::to_string(repeats / (float)test_tokens[test].size() * 100) + "%" );
-			if((float)test_tokens[test].size() * 100 > set.additional_options.test_compare
+			if(repeats / (float)test_tokens[test].size() * 100 > set.additional_options.test_compare
 				&& std::to_string(test) != std::to_string(compare_with_test))
 			{
 				checker.add_test_message("Тест номер " + std::to_string(test) + " слишком сильно похож на тест номер  "

@@ -89,7 +89,7 @@ int Parser::parse()
 	auto result = get_checker_info();
 
 //	result.print_results();
-	checker.write_result_in_file("../../report_check_result.txt");
+	checker.write_result_in_file("report_check_result.txt");
 
 	return SUCCESS;
 }
