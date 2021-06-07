@@ -113,9 +113,15 @@ void Result::write_result_in_file(const std::string& file)
 	if(file_stream.is_open())
 	{
 		write_headers_in_file(file_stream);
+		file_stream << " \n -----------------------------------------------------------------------" << "\n";
 		write_style_in_file(file_stream);
+		file_stream << "\n-----------------------------------------------------------------------" << "\n";
+		write_test_in_file(file_stream);
+		file_stream << "\n-----------------------------------------------------------------------" << "\n";
 		write_tableofcontent_in_file(file_stream);
+		file_stream << "\n-----------------------------------------------------------------------" << "\n";
 		write_title_in_file(file_stream);
+		file_stream << "\n-----------------------------------------------------------------------" << "\n";
 		write_files_in_file(file_stream);
 	}
 	file_stream.close();
@@ -156,6 +162,14 @@ void Result::write_title_in_file(std::ofstream &out)
 void Result::write_files_in_file(std::ofstream &out)
 {
 	for(auto& item : files_list)
+	{
+		out << item << "\n";
+	}
+}
+
+void Result::write_test_in_file(std::ofstream &out)
+{
+	for(auto& item : test_message_list)
 	{
 		out << item << "\n";
 	}

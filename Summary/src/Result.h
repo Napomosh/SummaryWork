@@ -45,6 +45,7 @@ private:
 	void write_style_in_file(std::ofstream& out);
 	void write_tableofcontent_in_file(std::ofstream& out);
 	void write_title_in_file(std::ofstream& out);
+	void write_test_in_file(std::ofstream& out);
 };
 
 #endif //SUMMARY_WORK_RESULT_H
