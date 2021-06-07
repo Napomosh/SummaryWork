@@ -2,9 +2,9 @@ find_package(doctest 2.3.6 REQUIRED)
 find_library(LIBRARY libPDFNetC.so PATHS ../libs)
 include_directories(../libs)
 
-add_executable(tests test.cpp ../src/PicturesChecker.cpp ../src/PicturesChecker.h ../src/TitleChecker.cpp ../src/TitleChecker.h)
+add_executable(tests test.cpp ../src/PicturesChecker.cpp ../src/PicturesChecker.h ../src/TitleChecker.cpp ../src/TitleChecker.h ../src/FilesChecker.cpp ../src/FilesChecker.h)
 
-target_sources(tests PRIVATE ../src/Settings.cpp ../src/Settings.h ../src/Parser.cpp ../src/Parser.h ../src/Result.cpp ../src/Result.h ../src/Rule.h ../src/HeadChecker.cpp ../src/HeadChecker.h ../src/StyleChecker.cpp ../src/StyleChecker.h ../src/TestChecker.cpp ../src/TestChecker.h ../src/TableOfContentChecker.cpp ../src/TableOfContentChecker.h)
+target_sources(tests PRIVATE ../src/Settings.cpp ../src/Settings.h ../src/Parser.cpp ../src/Parser.h ../src/Result.cpp ../src/Result.h ../src/Rule.h ../src/HeadChecker.cpp ../src/HeadChecker.h ../src/StyleChecker.cpp ../src/StyleChecker.h ../src/TestChecker.cpp ../src/TestChecker.h ../src/TableOfContentChecker.cpp ../src/TableOfContentChecker.h ../src/SpellChecker.cpp ../src/SpellChecker.h)
 
 target_link_libraries(tests
     PRIVATE

@@ -5376,7 +5376,7 @@ namespace {
 #endif // DOCTEST_PLATFORM_WINDOWS
             xml.startElement("testsuites");
             xml.startElement("testsuite").writeAttribute("name", binary_name)
-                    .writeAttribute("errors", testCaseData.totalErrors)
+                    .writeAttribute("repeats", testCaseData.totalErrors)
                     .writeAttribute("failures", testCaseData.totalFailures)
                     .writeAttribute("tests", p.numAsserts);
             if(opt.no_time_in_output == false) {
