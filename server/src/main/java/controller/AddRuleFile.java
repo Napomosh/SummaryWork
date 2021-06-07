@@ -17,7 +17,7 @@ public class AddRuleFile extends HttpServlet {
         Part file = req.getPart("file");
 
         if(file.getSize() <= MAX_SIZE_OF_FILE_IN_BYTES){
-            WorkWithDirectory.uploadFile(file, "/home/alex/FileSharingSystem/dirs/rule/");
+            WorkWithDirectory.uploadFile(file, "dirs/rule/");
         }
         String path = req.getContextPath() + "/main";
         resp.sendRedirect(path);

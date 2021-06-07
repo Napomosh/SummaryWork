@@ -17,7 +17,7 @@ public class UploadReportServlet extends HttpServlet {
         Part file = req.getPart("file");
 
         if(file.getSize() <= MAX_SIZE_OF_FILE_IN_BYTES){
-            WorkWithDirectory.uploadFile(file, "/home/alex/FileSharingSystem/dirs/report/");
+            WorkWithDirectory.uploadFile(file, "dirs/report/");
         }
         String path = req.getContextPath() + "/main";
         resp.sendRedirect(path);
