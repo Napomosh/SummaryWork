@@ -167,7 +167,8 @@ void TestChecker::compare_tokens(Result& checker, Settings& set)
 			{
 				checker.add_test_message("Тест номер " + std::to_string(test) + " слишком сильно похож на тест номер  "
 				+ std::to_string(compare_with_test) + ". Они имеют " + std::to_string(repeats) + " повторов, что составляет " +
-									std::to_string(repeats / (float)test_tokens[test].size() * 100) + "% при ограничении в " );
+									std::to_string(repeats / (float)test_tokens[test].size() * 100) + "% при ограничении в " +
+						                         std::to_string(set.additional_options.test_compare) + "%");
 			}
 			repeats = 0;
 		}
